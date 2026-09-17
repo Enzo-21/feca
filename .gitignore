@@ -27,16 +27,6 @@
 .DS_Store
 *.pem
 
-# heavy brand source/design files (kept locally, not in git)
-/src/assets/brand/FECA_Manual de marca.pdf
-/src/assets/brand/Packaging/*
-/src/assets/brand/RRSS/RRSS Feca.ai
-/src/assets/brand/RRSS/-_Post *.jpg
-/src/assets/brand/Logo/Logo FECA_Archivo fuente.ai
-/src/assets/brand/Logo/Logo FECA_PDF.pdf
-/src/assets/brand/Imagenes/Post 1.jpg
-/src/assets/brand/Imagenes/Pouch creatina.jpg
-
 # debug
 npm-debug.log*
 yarn-debug.log*
