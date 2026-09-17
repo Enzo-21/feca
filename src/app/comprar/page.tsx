@@ -136,9 +136,6 @@ export default function ComprarPage() {
                     </div>
 
                     <AddToCartButton slug={product.slug} />
-                    <p className="text-center text-[0.7rem] text-muted-foreground">
-                      Coordinamos pago y envío con tu vendedor por WhatsApp.
-                    </p>
                   </div>
                 </article>
               </Reveal>
