@@ -1,26 +1,151 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is([data-theme="dark"] *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-montserrat);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-heading: var(--font-zen-dots);
+  --font-display: var(--font-zen-dots);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  --color-cream: #f7f6f5;
+  --color-feather: #f1f1f1;
+  --color-graphite: #5b5d5c;
+  --color-ink: #3f4140;
+  --color-brand: #cc5e21;
+  --color-brand-dark: #a34a18;
+  --color-brand-light: #f2d8c4;
+  --color-sand: #ccb89d;
+  --animate-marquee: marquee 34s linear infinite;
+  --animate-marquee-slow: marquee 52s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  --background: #f7f6f5;
+  --foreground: #5b5d5c;
+  --card: #ffffff;
+  --card-foreground: #5b5d5c;
+  --popover: #ffffff;
+  --popover-foreground: #5b5d5c;
+  --primary: #cc5e21;
+  --primary-foreground: #ffffff;
+  --secondary: #ccb89d;
+  --secondary-foreground: #3f4140;
+  --muted: #efede9;
+  --muted-foreground: #8d908f;
+  --accent: #f2d8c4;
+  --accent-foreground: #3f4140;
+  --destructive: #d1262b;
+  --border: #e4e1dc;
+  --input: #e4e1dc;
+  --ring: #cc5e21;
+  --radius: 0.75rem;
+  --chart-1: #cc5e21;
+  --chart-2: #5b5d5c;
+  --chart-3: #ccb89d;
+  --chart-4: #a34a18;
+  --chart-5: #8d908f;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #5b5d5c;
+  --sidebar-primary: #cc5e21;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f2d8c4;
+  --sidebar-accent-foreground: #3f4140;
+  --sidebar-border: #e4e1dc;
+  --sidebar-ring: #cc5e21;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    color-scheme: light;
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-zen-dots);
+  }
+
+  .font-heading {
+    font-family: var(--font-zen-dots);
+  }
+
+  .mask-fade-y {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+::selection {
+  background: #cc5e21;
+  color: #fff;
 }
