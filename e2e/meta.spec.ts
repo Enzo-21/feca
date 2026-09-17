@@ -5,7 +5,7 @@ test.describe("Metadatos e íconos", () => {
     await page.goto("/");
 
     await expect(
-      page.locator('meta[name="theme-color"][content="#cc5e21"]')
+      page.locator('meta[name="theme-color"][content="#f7f6f5"]')
     ).toHaveCount(1);
 
     await expect(

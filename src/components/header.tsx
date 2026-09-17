@@ -36,10 +36,10 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 w-full border-b transition-all duration-300",
+        "fixed inset-x-0 top-0 z-50 w-full border-b transition-all duration-300 bg-cream",
         scrolled
-          ? "border-border bg-cream/90 shadow-sm backdrop-blur-md"
-          : "border-transparent bg-transparent"
+          ? "border-border shadow-sm md:bg-cream/90 md:backdrop-blur-md"
+          : "border-transparent md:bg-transparent"
       )}
     >
       <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
