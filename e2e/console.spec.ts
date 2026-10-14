@@ -20,6 +20,8 @@ test.describe("Estabilidad global", () => {
       "/ficha-tecnica",
       "/creatina",
       "/creatina/que-es",
+      "/creatina/creatina-engorda",
+      "/creatina/creatina-adultos-mayores",
       "/precio-creatina-argentina",
       "/productos/creatina-monohidrato-300g",
       "/productos/creatina-monohidrato-500g",

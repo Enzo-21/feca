@@ -838,4 +838,393 @@ export const articles: Article[] = [
     ],
     related: ["como-elegir-creatina", "creatina-monohidrato"],
   },
+  {
+    slug: "creatina-para-mujeres",
+    title: "¿La creatina es distinta para mujeres?",
+    metaTitle: "Creatina para mujeres",
+    description:
+      "La creatina no es distinta para mujeres: misma dosis y seguridad. Los mitos sobre hinchazón y peso, y qué hacer durante el embarazo o la lactancia.",
+    intro:
+      "No, la creatina no actúa distinto en mujeres: la dosis y la seguridad son las mismas que en hombres. Los depósitos musculares y el mecanismo energético no cambian por sexo. Sí conviene derribar algunos mitos sobre hinchazón y peso, y durante el embarazo o la lactancia consultar a un profesional.",
+    updated: "2026-10-15",
+    readingMinutes: 5,
+    intent: "mitos y seguridad en mujeres",
+    blocks: [
+      {
+        type: "p",
+        text: "La creatina es la misma molécula y el mismo mecanismo en mujeres y en hombres. No hay una versión distinta por sexo; lo que cambia es que circulan mitos sobre hinchazón y peso, y que en etapas como el embarazo conviene otra prudencia.",
+      },
+      { type: "h2", text: "Dosis y seguridad: iguales" },
+      {
+        type: "p",
+        text: "La dosis de mantenimiento es la misma para todas las personas: 3 a 5 gramos de creatina monohidrato por día, todos los días. El mecanismo energético del músculo no distingue por sexo, así que no hace falta una dosis especial.",
+      },
+      {
+        type: "table",
+        caption: "Puntos clave en mujeres",
+        head: ["Aspecto", "Qué sabemos"],
+        rows: [
+          ["Dosis diaria", "3 a 5 g, igual que en hombres"],
+          ["Mecanismo", "El mismo: energía para esfuerzos intensos"],
+          ["Tolerancia", "Buena en personas sanas"],
+          ["Embarazo o lactancia", "Consultar a un profesional"],
+        ],
+      },
+      { type: "h2", text: "Mitos sobre hinchazón y peso" },
+      {
+        type: "ul",
+        items: [
+          "El aumento de peso inicial suele ser agua dentro del músculo, no grasa.",
+          "La creatina no es un esteroide ni tiene efecto masculinizante.",
+          "No es exclusiva de hombres ni de quienes buscan músculo grande.",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warn",
+        title: "Embarazo y lactancia",
+        text: "Si estás embarazada o amamantando, consultá a un profesional antes de suplementar. La seguridad en estas etapas requiere una evaluación individual y no conviene guiarse por recomendaciones generales.",
+      },
+      {
+        type: "p",
+        text: "Según la evidencia, los beneficios sobre fuerza y rendimiento no dependen del sexo. La respuesta individual varía, y quienes arrancan con depósitos más bajos suelen notar más la suplementación. En FECA la creatina es monohidrato de 200 mesh con pureza de referencia ≥ 99,5 % y certificado de análisis por lote.",
+      },
+    ],
+    faqs: [
+      {
+        question: "¿La creatina funciona distinto en mujeres?",
+        answer:
+          "No. El mecanismo y la dosis son los mismos. La respuesta individual puede variar, pero no por el sexo.",
+      },
+      {
+        question: "¿La creatina engorda a las mujeres?",
+        answer:
+          "No aporta grasa. Puede aumentar el agua dentro del músculo, que no es grasa y suele reflejarse en poco peso en la balanza.",
+      },
+      {
+        question: "¿La creatina afecta las hormonas?",
+        answer:
+          "No. No es una hormona ni un esteroide; participa del metabolismo energético del músculo y no tiene relación con los esteroides anabólicos.",
+      },
+      {
+        question: "¿Puedo tomarla si estoy embarazada?",
+        answer:
+          "Consultá primero con un profesional. En el embarazo y la lactancia la decisión requiere una evaluación individual.",
+      },
+    ],
+    related: ["que-es", "efectos-secundarios", "creatina-engorda"],
+  },
+  {
+    slug: "creatina-engorda",
+    title: "¿La creatina engorda o retiene líquido?",
+    metaTitle: "¿La creatina engorda?",
+    description:
+      "¿La creatina engorda? No. El aumento de peso inicial es agua dentro del músculo, no grasa. Qué esperar en la balanza y por qué no afecta la grasa corporal.",
+    intro:
+      "La creatina no engorda. Puede aumentar el agua dentro de la célula muscular, un efecto que puede reflejarse como uno o dos kilos en la balanza al principio, pero no es grasa. Ese peso es intracelular y no implica un aumento de la grasa corporal.",
+    updated: "2026-10-15",
+    readingMinutes: 5,
+    intent: "mito / retención de líquido",
+    blocks: [
+      {
+        type: "p",
+        text: "La duda es razonable: al empezar con creatina, la balanza puede subir. Pero ese cambio no viene de la grasa, sino del agua que la creatina atrae hacia el interior de la célula muscular.",
+      },
+      { type: "h2", text: "Agua intracelular, no grasa" },
+      {
+        type: "p",
+        text: "La creatina se acumula en el músculo y con ella entra agua. Ese líquido queda dentro de la célula muscular —agua intracelular— y no se distribuye como hinchazón general ni se convierte en grasa. Es parte de cómo actúa la creatina.",
+      },
+      {
+        type: "table",
+        caption: "Qué cambia y qué no",
+        head: ["Aspecto", "Con creatina"],
+        rows: [
+          ["Grasa corporal", "No cambia"],
+          ["Agua dentro del músculo", "Puede aumentar"],
+          ["Peso en la balanza", "Puede subir al principio"],
+          ["Fuerza y potencia", "Puede mejorar"],
+        ],
+      },
+      { type: "h2", text: "Qué esperar en la balanza" },
+      {
+        type: "p",
+        text: "El aumento suele ser de uno o dos kilos y aparece en las primeras semanas, cuando los depósitos se están llenando. Después tiende a estabilizarse: la creatina no hace subir el peso de forma indefinida.",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "No es un aumento de grasa",
+        text: "Si la balanza sube y la ropa te queda igual, es probable que sea agua intracelular. La creatina no aporta grasa de forma significativa.",
+      },
+      {
+        type: "p",
+        text: "Si dejás de tomar creatina, ese líquido intracelular vuelve a bajar con el tiempo. No es grasa acumulada. En FECA la pureza de referencia es ≥ 99,5 % y cada lote tiene certificado de análisis verificable en la sección Calidad.",
+      },
+      {
+        type: "p",
+        text: "Si te preocupa la retención de líquido por una condición médica, como problemas renales o cardíacos, consultá a un profesional antes de suplementar.",
+      },
+    ],
+    faqs: [
+      {
+        question: "¿La creatina engorda?",
+        answer:
+          "No. Puede aumentar el agua dentro del músculo, que no es grasa ni implica un aumento de la grasa corporal.",
+      },
+      {
+        question: "¿Cuántos kilos subo con creatina?",
+        answer:
+          "Puede ser uno o dos kilos al principio, por agua intracelular. Varía según la persona y suele estabilizarse.",
+      },
+      {
+        question: "¿Esa retención se va?",
+        answer:
+          "Si dejás de tomar creatina, el agua intracelular vuelve a bajar con el tiempo. No es grasa acumulada.",
+      },
+      {
+        question: "¿Retiene líquido en todo el cuerpo?",
+        answer:
+          "El agua que aumenta está principalmente dentro de la célula muscular, no como una hinchazón general.",
+      },
+    ],
+    related: ["efectos-secundarios", "como-elegir-creatina", "creatina-para-mujeres"],
+  },
+  {
+    slug: "creatina-y-cafeina",
+    title: "¿Se puede mezclar creatina con café o cafeína?",
+    metaTitle: "Creatina y cafeína",
+    description:
+      "¿Se puede mezclar creatina con café o cafeína? Sí. No hay una interacción relevante conocida y no se anulan entre sí. Qué dice la evidencia y cómo tomarlas.",
+    intro:
+      "Sí, se puede mezclar creatina con café o con cualquier bebida con cafeína. No hay una interacción relevante conocida entre ambas a las dosis habituales y no se anulan entre sí. Lo que importa sigue siendo la dosis diaria de 3 a 5 gramos.",
+    updated: "2026-10-15",
+    readingMinutes: 4,
+    intent: "interacción con cafeína",
+    blocks: [
+      {
+        type: "p",
+        text: "Es una de las dudas más frecuentes: si el café interfiere con la creatina. La respuesta corta es que se pueden combinar sin problema; no hay una interacción relevante conocida a las dosis habituales.",
+      },
+      { type: "h2", text: "Se pueden tomar juntas" },
+      {
+        type: "p",
+        text: "Podés disolver la creatina en café, en una bebida con cafeína o tomarlas por separado. La cafeína no degrada de forma relevante a la creatina y no la vuelve inútil. Elegí la forma que te resulte más práctica.",
+      },
+      {
+        type: "table",
+        caption: "Combinar creatina y cafeína",
+        head: ["Forma", "¿Se puede?"],
+        rows: [
+          ["Creatina disuelta en café", "Sí"],
+          ["Una antes y otra después", "Sí"],
+          ["Juntas en un batido", "Sí"],
+          ["Se anulan entre sí", "No"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "Hidratación",
+        text: "La cafeína puede tener un efecto diurético leve. Si tomás bastante café y además entrenás, cubrí bien tu hidratación a lo largo del día.",
+      },
+      { type: "h2", text: "Qué dice la evidencia" },
+      {
+        type: "p",
+        text: "Circuló la idea de que la cafeína contrarresta la creatina, a partir de estudios puntuales y con resultados poco consistentes. La postura del International Society of Sports Nutrition (ISSN) no plantea una interacción problemática entre ambas a las dosis habituales.",
+      },
+      {
+        type: "p",
+        text: "Podés tomarlas juntas, en el mismo momento del día, o separadas; no hay una diferencia relevante para el efecto. En FECA la creatina es monohidrato de 200 mesh con certificado de análisis por lote verificable.",
+      },
+      {
+        type: "callout",
+        tone: "warn",
+        title: "Si tomás medicación",
+        text: "Si tenés alguna condición cardíaca o tomás medicación, consultá a un profesional antes de combinar cafeína y creatina de forma habitual.",
+      },
+    ],
+    faqs: [
+      {
+        question: "¿El café mata la creatina?",
+        answer:
+          "No. No hay evidencia de que la cafeína anule el efecto de la creatina a las dosis habituales.",
+      },
+      {
+        question: "¿Puedo tomar creatina con café todos los días?",
+        answer:
+          "Sí, sin problema. Lo importante es sostener la dosis diaria de 3 a 5 g, no la bebida con la que la tomes.",
+      },
+      {
+        question: "¿Conviene separarlas?",
+        answer:
+          "No es necesario. Podés tomarlas juntas o separadas; no hay una diferencia relevante.",
+      },
+      {
+        question: "¿Y con bebidas energizantes?",
+        answer:
+          "Se pueden combinar, pero ojo con el total de cafeína y azúcares del día. La creatina no cambia por la bebida.",
+      },
+    ],
+    related: ["como-tomar", "que-es", "tomar-todos-los-dias"],
+  },
+  {
+    slug: "creatina-veganos",
+    title: "¿La creatina es más importante si sos vegano o vegetariano?",
+    metaTitle: "Creatina y veganismo",
+    description:
+      "En veganos y vegetarianos los depósitos de creatina suelen ser más bajos, por eso la suplementación puede notarse más. Dosis, fuentes y qué tener en cuenta.",
+    intro:
+      "En veganos y vegetarianos los depósitos musculares de creatina suelen ser más bajos, porque la dieta aporta menos de esta molécula. Por eso la suplementación puede notarse más en fuerza y rendimiento. La dosis es la misma: 3 a 5 gramos diarios de monohidrato.",
+    updated: "2026-10-15",
+    readingMinutes: 5,
+    intent: "dietas vegetarianas y veganas",
+    blocks: [
+      {
+        type: "p",
+        text: "La creatina que el cuerpo usa llega en parte de la alimentación, sobre todo de la carne y el pescado. Por eso quienes siguen dietas vegetarianas o veganas suelen partir de depósitos musculares más bajos, y la suplementación puede notarse más.",
+      },
+      { type: "h2", text: "Por qué los depósitos son más bajos" },
+      {
+        type: "p",
+        text: "La principal fuente dietaria de creatina son los alimentos de origen animal. En una dieta sin carne el aporte baja y los depósitos musculares tienden a ser más chicos. No es una deficiencia ni algo peligroso: es un punto de partida más bajo.",
+      },
+      { type: "h2", text: "Qué puede cambiar con la suplementación" },
+      {
+        type: "ul",
+        items: [
+          "Al partir de depósitos más bajos, la saturación puede representar un cambio mayor.",
+          "Los efectos sobre fuerza y rendimiento pueden notarse más que en quien ya tiene depósitos altos.",
+          "La dosis es la misma: 3 a 5 g diarios de monohidrato.",
+        ],
+      },
+      {
+        type: "table",
+        caption: "Fuentes de creatina",
+        head: ["Fuente", "Aporte"],
+        rows: [
+          ["Carne y pescado", "Fuente dietaria principal"],
+          ["Vegetales y legumbres", "Aporte muy bajo"],
+          ["Suplemento", "Aporta una dosis medible y diaria"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "El suplemento no es de origen animal",
+        text: "La creatina monohidrato del suplemento se produce por síntesis, no se extrae de animales. En FECA la materia prima es de origen chino, con certificado de análisis verificable por lote en la sección Calidad.",
+      },
+      {
+        type: "p",
+        text: "Según la evidencia, la respuesta a la creatina es mayor en quienes tienen depósitos más bajos, algo frecuente en dietas vegetarianas y veganas. Además, la creatina monohidrato es apta para estas dietas porque su producción no depende de animales.",
+      },
+      {
+        type: "p",
+        text: "Si seguís una dieta específica o tenés una condición médica, consultá a un profesional antes de suplementar.",
+      },
+    ],
+    faqs: [
+      {
+        question: "¿Los vegetarianos necesitan creatina?",
+        answer:
+          "No es una necesidad, pero como suelen partir de depósitos más bajos, la suplementación puede notarse más en fuerza y rendimiento.",
+      },
+      {
+        question: "¿La creatina del suplemento es animal?",
+        answer:
+          "No. La creatina monohidrato se produce por síntesis; no se extrae de animales.",
+      },
+      {
+        question: "¿Qué alimentos tienen creatina?",
+        answer:
+          "Sobre todo la carne y el pescado. Los vegetales y las legumbres aportan cantidades muy bajas.",
+      },
+      {
+        question: "¿Sirve igual si soy vegano?",
+        answer:
+          "Sí, el mecanismo es el mismo. Puede que notes más el efecto por arrancar con depósitos más bajos.",
+      },
+    ],
+    related: ["que-es", "beneficios", "como-elegir-creatina"],
+  },
+  {
+    slug: "creatina-adultos-mayores",
+    title: "Creatina en adultos mayores: fuerza y masa muscular",
+    metaTitle: "Creatina en adultos mayores",
+    description:
+      "Creatina en adultos mayores: puede ayudar a la fuerza y la masa muscular según la evidencia. Dosis, qué esperar y cuándo consultar a un profesional.",
+    intro:
+      "Según la evidencia, la creatina puede ayudar a la fuerza y la masa muscular en adultos mayores, un aspecto relevante por la pérdida de músculo con la edad. La dosis de mantenimiento es la misma, pero conviene consultar a un profesional por las condiciones y la medicación de cada persona.",
+    updated: "2026-10-15",
+    readingMinutes: 5,
+    intent: "adultos mayores y función muscular",
+    blocks: [
+      {
+        type: "p",
+        text: "Con la edad es normal perder masa y fuerza muscular. La creatina es uno de los suplementos que se estudian en ese contexto, porque su mecanismo está ligado a la energía del músculo y a la función física.",
+      },
+      { type: "h2", text: "Qué dice la evidencia" },
+      {
+        type: "p",
+        text: "Según la evidencia disponible, la creatina puede ayudar a mejorar la fuerza y la masa muscular en adultos mayores, sobre todo cuando se combina con entrenamiento de fuerza. Se asocia con una mejor función física en quienes entrenan. No es un medicamento y no cura ni previene enfermedades.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Puede ayudar a la fuerza cuando se combina con entrenamiento de resistencia.",
+          "Se asocia con mejoras en la masa muscular en adultos mayores que entrenan.",
+          "Los resultados varían según la persona, el entrenamiento y la alimentación.",
+        ],
+      },
+      {
+        type: "table",
+        caption: "Aspectos a tener en cuenta",
+        head: ["Aspecto", "Consideración"],
+        rows: [
+          ["Dosis", "3 a 5 g diarios"],
+          ["Lo más estudiado", "Junto con entrenamiento de fuerza"],
+          ["Seguridad", "Debe evaluarse caso por caso"],
+          ["Medicación o enfermedad", "Consultar a un profesional"],
+        ],
+      },
+      {
+        type: "callout",
+        tone: "warn",
+        title: "Consultá antes de empezar",
+        text: "En adultos mayores es más común la enfermedad renal, la medicación o varias condiciones a la vez. Antes de suplementar, consultá con un profesional que evalúe tu caso.",
+      },
+      { type: "h2", text: "Qué esperar" },
+      {
+        type: "p",
+        text: "La creatina no reemplaza el entrenamiento ni la alimentación: los beneficios mejor respaldados aparecen cuando acompaña a un trabajo de fuerza. Sin entrenamiento, el efecto sobre fuerza y masa muscular pierde sentido. En FECA la creatina es monohidrato de 200 mesh con pureza de referencia ≥ 99,5 %.",
+      },
+      {
+        type: "p",
+        text: "Si tenés una enfermedad renal, tomás medicación o tenés alguna condición médica, consultá a un profesional antes de sumarla a tu rutina.",
+      },
+    ],
+    faqs: [
+      {
+        question: "¿La creatina sirve para adultos mayores?",
+        answer:
+          "Según la evidencia, puede ayudar a la fuerza y la masa muscular, sobre todo combinada con entrenamiento de fuerza.",
+      },
+      {
+        question: "¿A partir de qué edad conviene?",
+        answer:
+          "No hay una edad fija. Lo relevante es la situación de cada persona y, ante enfermedad o medicación, la consulta con un profesional.",
+      },
+      {
+        question: "¿Es segura en adultos mayores?",
+        answer:
+          "En personas sanas suele tolerarse bien, pero en adultos mayores conviene una evaluación individual por la medicación y las condiciones previas.",
+      },
+      {
+        question: "¿Reemplaza al entrenamiento?",
+        answer:
+          "No. Los mejores resultados se ven cuando la creatina acompaña a un plan de fuerza, no cuando lo reemplaza.",
+      },
+    ],
+    related: ["beneficios", "cuanta-tomar", "efectos-secundarios"],
+  },
 ];

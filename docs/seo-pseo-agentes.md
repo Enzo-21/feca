@@ -141,5 +141,8 @@ validez de los activos de agentes, y JSON-LD de home, producto, artículo y lote
   porque ayudan al parseo por LLM, no por rich result.
 - El backlog editorial (§11 del plan) tiene 16 ítems: los 12 artículos del hub
   están escritos y la guía de precio (`/precio-creatina-argentina`, ítem 14)
-  también. Falta autoría/revisión experta (E-E-A-T) y comparativas por
+  también. Se sumaron 5 guías extra fuera del backlog original
+  (`creatina-para-mujeres`, `creatina-engorda`, `creatina-y-cafeina`,
+  `creatina-veganos`, `creatina-adultos-mayores`): el hub tiene **17**
+  artículos. Falta autoría/revisión experta (E-E-A-T) y comparativas por
   criterios.
