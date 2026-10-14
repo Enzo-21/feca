@@ -93,8 +93,9 @@ Estructura estándar (se ve igual en el certificado y en la ficha técnica):
 - **Tamaño**: A4 (595 × 842 pt / 210 × 297 mm). Márgenes laterales 12 mm.
 - **Fondos de color**: siempre imprimirlos (`printBackground` / `-webkit-print-color-adjust: exact`).
 - **Idioma**: chrome del documento en español (es-AR). Datos técnicos verbatim.
-- **Números**: separador decimal **coma** (`99,5 %`, `149,15 g/mol`). Operadores
-  `>=` / `<=` (o los glifos `≥` / `≤` en web). Unidades con espacio: `0,03 %`,
+- **Números**: separador decimal **coma** (`99,5 %`, `149,15 g/mol`), preservando
+  los decimales del origen (`12,0 %`, no `12 %`). Operadores con los glifos
+  `≥` / `≤` (tanto en los PDF como en la web). Unidades con espacio: `0,03 %`,
   `430 g/L`, `100 ppm`, `100 cfu/g`. La conversión de separador la hace
   `formatDecimalComma()`, que reemplaza `.` por `,` **solo entre dígitos**: así
   no rompe strings como `U.S.P.<731>` (cuyos puntos no son decimales).

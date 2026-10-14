@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 
-const TOTAL = 13; // 12 lotes de ejemplo + 1 lote real (202604-013)
+const LOT = "202604-013";
+const TOTAL = 1; // único lote real cargado
 
 test.describe("Calidad — certificados", () => {
   test(`muestra los ${TOTAL} certificados por defecto`, async ({ page }) => {
@@ -8,37 +9,33 @@ test.describe("Calidad — certificados", () => {
 
     await expect(page.getByRole("heading", { name: "Calidad" })).toBeVisible();
     await expect(
-      page.getByText(`${TOTAL} certificados encontrados`, { exact: true })
+      page.getByText(`${TOTAL} certificado encontrado`, { exact: true })
     ).toBeVisible();
     await expect(page.locator("article")).toHaveCount(TOTAL);
+    await expect(page.getByText(LOT, { exact: true })).toBeVisible();
   });
 
   test("filtra por número de lote en vivo", async ({ page }) => {
     await page.goto("/calidad");
 
-    await page.getByLabel("Buscar por número de lote").fill("FECA-2026-003");
-
+    await page.getByLabel("Buscar por número de lote").fill("2026");
     await expect(
-      page.getByText("1 certificado encontrado", { exact: true })
+      page.getByText(`${TOTAL} certificado encontrado`, { exact: true })
     ).toBeVisible();
-    await expect(page.locator("article")).toHaveCount(1);
-    await expect(page.getByText("FECA-2026-003", { exact: true })).toBeVisible();
 
-    await page.getByRole("button", { name: "Limpiar" }).click();
+    await page.getByLabel("Buscar por número de lote").fill("9999");
     await expect(
-      page.getByText(`${TOTAL} certificados encontrados`, { exact: true })
+      page.getByText("0 certificados encontrados", { exact: true })
     ).toBeVisible();
+    await expect(page.locator("article")).toHaveCount(0);
   });
 
-  test("busca también por producto", async ({ page }) => {
+  test("busca por nombre de producto", async ({ page }) => {
     await page.goto("/calidad");
 
-    await page.getByLabel("Buscar por número de lote").fill("Saborizada");
-
-    await expect(page.locator("article")).toHaveCount(2);
-    for (const lot of ["FECA-2026-005", "FECA-2026-010"]) {
-      await expect(page.getByText(lot, { exact: true })).toBeVisible();
-    }
+    await page.getByLabel("Buscar por número de lote").fill("Creatine");
+    await expect(page.getByText(LOT, { exact: true })).toBeVisible();
+    await expect(page.locator("article")).toHaveCount(TOTAL);
   });
 
   test("lote inválido muestra estado vacío", async ({ page }) => {
@@ -56,29 +53,24 @@ test.describe("Calidad — certificados", () => {
   test("query ?lote= pre-carga el buscador y arma el enlace PDF", async ({
     page,
   }) => {
-    await page.goto("/calidad?lote=FECA-2026-001");
+    await page.goto(`/calidad?lote=${LOT}`);
 
-    await expect(page.getByLabel("Buscar por número de lote")).toHaveValue(
-      "FECA-2026-001"
-    );
+    await expect(page.getByLabel("Buscar por número de lote")).toHaveValue(LOT);
     await expect(
-      page.getByText("1 certificado encontrado", { exact: true })
+      page.getByText(`${TOTAL} certificado encontrado`, { exact: true })
     ).toBeVisible();
 
     const pdf = page.getByRole("link", { name: "Descargar certificado PDF" });
-    await expect(pdf).toHaveAttribute(
-      "href",
-      "/certificados/FECA-2026-001.pdf"
-    );
+    await expect(pdf).toHaveAttribute("href", `/certificados/${LOT}.pdf`);
     await expect(pdf).toHaveAttribute("target", "_blank");
   });
 
   test("el lote real incluye el certificado de materia prima (2 páginas)", async ({
     page,
   }) => {
-    await page.goto("/calidad?lote=202604-013");
+    await page.goto(`/calidad?lote=${LOT}`);
 
-    await expect(page.getByText("202604-013", { exact: true })).toBeVisible();
+    await expect(page.getByText(LOT, { exact: true })).toBeVisible();
     await expect(
       page.getByText("Creatine Monohydrate 200 Mesh", { exact: true })
     ).toBeVisible();
@@ -87,7 +79,7 @@ test.describe("Calidad — certificados", () => {
     ).toBeVisible();
 
     const pdf = page.getByRole("link", { name: "Descargar certificado PDF" });
-    await expect(pdf).toHaveAttribute("href", "/certificados/202604-013.pdf");
+    await expect(pdf).toHaveAttribute("href", `/certificados/${LOT}.pdf`);
   });
 
   test("los PDFs de certificados existen", async ({ page, request }) => {

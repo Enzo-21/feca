@@ -37,8 +37,12 @@ Documenta cómo se construyó y cómo se regenera el PDF de una sola página con
 Reglas de formateo aplicadas por el generador:
 
 - Si la fila tiene `specification` → se usa tal cual.
-- Si tiene `operator`/`value`/`unit` → `` `${operator} ${value} ${unit}` ``,
-  con el número formateado a **coma decimal** (`String(value).replace(".", ",")`).
+- Si tiene `operator`/`value`/`unit` → `<operador> <valor> <unidad>`, con el
+  operador como glifo (`>=` → `≥`, `<=` → `≤`) y el número en **coma decimal**
+  (`formatDecimalComma`).
+- `value` puede ser `number` o `string`: para preservar el decimal original
+  (ej. `"12.0"` → `12,0`) se guarda como **string**, porque un `number` 12.0 se
+  serializa como `12`.
 
 ## 2. Toolchain (y por qué)
 
@@ -117,7 +121,7 @@ parámetros + la información del producto + el remark.
 
 ## 7. Limitaciones conocidas
 
-- **`Loss On Drying` muestra `<= 12 %`** (no `12,0`): el dato de origen es el
-  número `12.0`, que al serializar a string pierde el decimal. Si se quiere
-  mostrar `12,0`, cambiar la fuente de datos para que ese valor sea string, o
-  agregar una regla de formato específica.
+- **`Loss On Drying`**: ya se muestra `≤ 12,0 %` — se guarda `value: "12.0"`
+  (string) para preservar el cero decimal y el operador se imprime como glifo
+  `≤`. Si se agregan otros valores con decimales significativos, guardarlos
+  también como string.

@@ -35,8 +35,9 @@ data/
     202604-013/
       202604-013.json    # JSON del proveedor (fuente de verdad del lote)
       202604-013.pdf     # (opcional) PDF del proveedor → se anexa como página 2
-    FECA-2026-001/
-      FECA-2026-001.json # lote de ejemplo ("demo": true)
+    <LOT>/               # una carpeta por lote real
+      <LOT>.json
+      <LOT>.pdf          # (opcional)
 ```
 
 Reglas de nombres:
@@ -84,7 +85,7 @@ El formato es el del proveedor (no hay que reescribirlo). Campos reales del lote
   "remark": "Stored in cool, dry and ventilated warehouse, and keep away from Moisture.",
   "analyst": "Liu Jing",
   "person_responsible_for_quality": "Xu Yuerong",
-  "demo": false                                 // "true" solo para lotes de ejemplo
+  "demo": false                                 // opcional; hoy no hay lotes de ejemplo
 }
 ```
 
@@ -130,15 +131,12 @@ En el PDF y en la web se muestran como `APROBADO` / `RECHAZADO` / `PENDIENTE`.
 
 ### 3.2 El flag `demo`
 
-Los 12 lotes de ejemplo viven en `data/lotes/FECA-2026-001..012/` con
-`"demo": true`. La web:
+El pipeline soporta lotes de ejemplo: un lote con `"demo": true` se marca con el
+badge `Ejemplo` en la tarjeta y, si existe al menos uno, `/calidad` muestra el
+aviso "Incluye lotes de ejemplo…".
 
-- muestra un badge `Ejemplo` en la tarjeta;
-- muestra el aviso "Incluye lotes de ejemplo…" en `/calidad` **solo si** existe al
-  menos un lote `demo`.
-
-El único lote real por ahora es `202604-013` (creatina monohidrato 200 mesh),
-que además trae su PDF de proveedor.
+**Hoy no hay lotes de ejemplo cargados**: el único lote es el real `202604-013`
+(creatina monohidrato 200 mesh), que además trae su PDF de proveedor.
 
 ## 4. Cómo agrega una persona un lote nuevo (runbook)
 
@@ -211,8 +209,9 @@ reloj y no necesitan red (las fuentes son locales).
 
 `src/lib/certificates.ts` define el tipo `Certificate` y re-exporta el índice
 generado, de modo que el resto del sitio no sabe de dónde salen los datos.
-`certificate-search.tsx` muestra lote, fecha, estado, método, el badge `Ejemplo`
-y una nota cuando el PDF incluye la página del proveedor.
+`certificate-search.tsx` muestra lote, fecha, estado y método (más el badge
+`Ejemplo` si el lote lo es) y una nota cuando el PDF incluye la página del
+proveedor. El "filtro rápido" por prefijo se oculta cuando hay un único lote.
 
 ## 8. Verificación
 
@@ -224,13 +223,12 @@ y una nota cuando el PDF incluye la página del proveedor.
   import pymupdf
   d = pymupdf.open("public/certificados/202604-013.pdf")
   print("pages", d.page_count)   # 2 (marca + proveedor)
-  d2 = pymupdf.open("public/certificados/FECA-2026-001.pdf")
-  print("pages", d2.page_count)  # 1 (solo marca, lote de ejemplo)
   ```
 
 - **e2e**: `npm run test:e2e` (Playwright). `e2e/calidad.spec.ts` verifica que se
-  listen los 13 certificados (12 de ejemplo + 1 real), el filtrado y que el lote
-  `202604-013` informe las 2 páginas.
+  liste el único certificado real (`202604-013`), el filtrado y que informe las 2
+  páginas.
+- **Idempotencia**: correr el generador dos veces debe producir el mismo hash.
 - **Idempotencia**: correr el generador dos veces debe producir el mismo hash.
 
 ## 9. Limitaciones conocidas

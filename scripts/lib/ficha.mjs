@@ -18,12 +18,15 @@ import {
 
 const PAGE_PADDING = 34;
 
+const OPERATOR_GLYPH = { ">=": "≥", "<=": "≤" };
+
 function formatSpec(spec) {
   if (spec.specification !== undefined) {
     return { text: String(spec.specification), numeric: false };
   }
+  const op = OPERATOR_GLYPH[spec.operator] ?? spec.operator;
   return {
-    text: `${spec.operator} ${formatDecimalComma(spec.value)} ${spec.unit}`,
+    text: `${op} ${formatDecimalComma(spec.value)} ${spec.unit}`,
     numeric: true,
   };
 }

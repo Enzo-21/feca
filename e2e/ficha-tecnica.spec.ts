@@ -21,6 +21,15 @@ test.describe("Ficha técnica", () => {
     }
   });
 
+  test("las especificaciones usan coma decimal y operadores con glifo", async ({
+    page,
+  }) => {
+    await page.goto("/ficha-tecnica");
+
+    await expect(page.getByText("≥ 99,5 %", { exact: true })).toBeVisible();
+    await expect(page.getByText("≤ 12,0 %", { exact: true })).toBeVisible();
+  });
+
   test("los enlaces de descarga apuntan al PDF en una pestaña nueva", async ({
     page,
   }) => {

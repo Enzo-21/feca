@@ -11,7 +11,7 @@ test.describe("Estabilidad global", () => {
     });
     page.on("pageerror", (err) => errors.push(`pageerror: ${err.message}`));
 
-    for (const route of ["/", "/comprar", "/calidad", "/calidad?lote=FECA-2026-001"]) {
+    for (const route of ["/", "/comprar", "/calidad", "/calidad?lote=202604-013"]) {
       const res = await page.goto(route);
       expect(res?.status(), `${route} no responde 200`).toBe(200);
     }

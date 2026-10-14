@@ -29,7 +29,9 @@ export const technicalSheet = {
     {
       item: "Loss On Drying",
       operator: "<=",
-      value: 12.0,
+      // Se guarda como string para preservar el decimal original ("12,0",
+      // no "12"): un `number` 12.0 se imprimiría sin el cero final.
+      value: "12.0",
       unit: "%"
     },
     {

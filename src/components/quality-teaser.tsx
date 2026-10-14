@@ -47,7 +47,7 @@ export default function QualityTeaser() {
                     name="lote"
                     type="text"
                     required
-                    placeholder="Ej.: FECA-2026-001"
+                    placeholder="Ej.: 202604-013"
                     className="h-12 rounded-full bg-background pr-4 pl-11 text-sm text-ink placeholder:text-muted-foreground focus-visible:border-brand focus-visible:ring-0"
                   />
                 </div>

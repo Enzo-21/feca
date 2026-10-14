@@ -62,7 +62,7 @@ export default function CertificateSearch({
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Ej.: FECA-2026-001"
+              placeholder="Ej.: 202604-013"
               autoComplete="off"
               className="h-12 rounded-full bg-background pr-4 pl-11 text-sm text-ink placeholder:text-muted-foreground focus-visible:border-brand focus-visible:ring-0"
             />
@@ -78,29 +78,31 @@ export default function CertificateSearch({
           </Button>
         </div>
 
-        <div className="mt-4 flex flex-wrap items-center gap-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Filtro rápido:
-          </span>
-          <button type="button" onClick={() => setQuery("")}>
-            <Badge
-              variant={!query ? "default" : "outline"}
-              className="cursor-pointer px-3 py-1 text-xs font-bold uppercase tracking-wider"
-            >
-              Todos
-            </Badge>
-          </button>
-          {uniqueLots.slice(0, 6).map((lot) => (
-            <button key={lot} type="button" onClick={() => setQuery(lot)}>
+        {uniqueLots.length > 1 && (
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              Filtro rápido:
+            </span>
+            <button type="button" onClick={() => setQuery("")}>
               <Badge
-                variant={query === lot ? "default" : "outline"}
+                variant={!query ? "default" : "outline"}
                 className="cursor-pointer px-3 py-1 text-xs font-bold uppercase tracking-wider"
               >
-                {lot}
+                Todos
               </Badge>
             </button>
-          ))}
-        </div>
+            {uniqueLots.slice(0, 6).map((lot) => (
+              <button key={lot} type="button" onClick={() => setQuery(lot)}>
+                <Badge
+                  variant={query === lot ? "default" : "outline"}
+                  className="cursor-pointer px-3 py-1 text-xs font-bold uppercase tracking-wider"
+                >
+                  {lot}
+                </Badge>
+              </button>
+            ))}
+          </div>
+        )}
       </form>
 
       <div className="flex items-center justify-between">
@@ -141,7 +143,7 @@ export default function CertificateSearch({
           </h3>
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
             Verificá que el número de lote coincida con el que figura en la base
-            de tu envase (ej.: FECA-2026-001). Si aún así no aparece, escribinos
+            de tu envase (ej.: 202604-013). Si aún así no aparece, escribinos
             y lo resolvemos.
           </p>
           <Button

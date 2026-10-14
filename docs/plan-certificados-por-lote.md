@@ -6,6 +6,12 @@
 [`brand-pdf-system.md`](./brand-pdf-system.md),
 [`ficha-tecnica-pdf.md`](./ficha-tecnica-pdf.md).
 
+> **Actualización posterior:** los 12 lotes de ejemplo (`FECA-2026-001..012`),
+> que la Fase 6 migró como lotes `demo: true`, se **eliminaron**: hoy el único
+> certificado es el lote real `202604-013`. El pipeline sigue soportando
+> `demo: true`, pero no hay ningún lote de ejemplo cargado. Las referencias a los
+> 12 lotes de más abajo quedan como registro histórico del plan.
+
 > **Doc de operación:** [`certificados-por-lote.md`](./certificados-por-lote.md)
 > describe el sistema tal como quedó implementado (estructura de carpetas,
 > campos del JSON, runbook paso a paso, comandos y limitaciones). Este archivo

@@ -147,10 +147,10 @@ test.describe("Home — secciones", () => {
   }) => {
     await page.goto("/");
 
-    await page.getByLabel("Número de lote").fill("FECA-2026-001");
+    await page.getByLabel("Número de lote").fill("202604-013");
     await page.getByRole("button", { name: "Buscar" }).click();
 
-    await expect(page).toHaveURL(/\/calidad\?lote=FECA-2026-001/);
+    await expect(page).toHaveURL(/\/calidad\?lote=202604-013/);
     await expect(
       page.getByText("1 certificado encontrado", { exact: true })
     ).toBeVisible();

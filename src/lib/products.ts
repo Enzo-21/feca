@@ -8,7 +8,6 @@ export type Product = {
   grams: number;
   size: string;
   servings: number;
-  referenceLot: string;
   discountPct: number;
   badge?: string;
   featured?: boolean;
@@ -26,7 +25,6 @@ export const products: Product[] = [
     grams: 300,
     size: "300 g",
     servings: 60,
-    referenceLot: "FECA-2026-001",
     discountPct: 0,
     badge: "Clásico",
   },
@@ -41,7 +39,6 @@ export const products: Product[] = [
     grams: 500,
     size: "500 g",
     servings: 100,
-    referenceLot: "FECA-2026-003",
     discountPct: 15,
     badge: "Más elegido",
     featured: true,
@@ -57,7 +54,6 @@ export const products: Product[] = [
     grams: 1000,
     size: "1 kg",
     servings: 200,
-    referenceLot: "FECA-2026-006",
     discountPct: 25,
     badge: "Mejor precio por kg",
   },

@@ -24,7 +24,8 @@ const operatorGlyph: Record<string, string> = {
   "<=": "≤",
 };
 
-const formatNumber = (value: number) => String(value).replace(".", ",");
+const formatNumber = (value: number | string) =>
+  String(value).replace(".", ",");
 
 export const metadata: Metadata = {
   title: "Ficha técnica",
