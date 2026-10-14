@@ -1,0 +1,160 @@
+{
+  "company_name": "Ningxia Baoma Pharm Co., Ltd",
+  "company_address": "34 Shanshui Road ,Taisha District Area ,Pingluo County,Shizuishan City,Ningxia,753401,China",
+  "document_title": "CERTIFICATE OF ANALYSIS",
+  "date": "Apr.13,2026",
+  "product_information": {
+    "product_name": "Creatine Monohydrate 200 Mesh",
+    "manufacture_date": "Apr.13,2026",
+    "expiry_date": "Apr.12,2029",
+    "quantity": "27000KGS",
+    "number_of_packages": "1080Cartons",
+    "batch_no": "202604-013",
+    "packing_spec": "25kg/Carton"
+  },
+  "analysis_results": [
+    {
+      "item": "Appearance",
+      "specification": "White Crystalline Powder",
+      "result": "Qualified",
+      "analysis_method": "VISUAL"
+    },
+    {
+      "item": "Solubility Test",
+      "specification": "Slightly soluble in water",
+      "result": "Slightly soluble in water",
+      "analysis_method": "USP43"
+    },
+    {
+      "item": "Assay",
+      "specification": "≥99.5%",
+      "result": "99.80%",
+      "analysis_method": "TITRATION"
+    },
+    {
+      "item": "Creatinine",
+      "specification": "≤100ppm",
+      "result": "34ppm",
+      "analysis_method": "HPLC"
+    },
+    {
+      "item": "Loss On Drying",
+      "specification": "≤12.0%",
+      "result": "11.70%",
+      "analysis_method": "U.S.P.<731>"
+    },
+    {
+      "item": "Residue On Ignition",
+      "specification": "≤0.1%",
+      "result": "0.071%",
+      "analysis_method": "U.S.P.<281>"
+    },
+    {
+      "item": "Iron",
+      "specification": "≤10ppm",
+      "result": "<10ppm",
+      "analysis_method": "U.S.P.<241>"
+    },
+    {
+      "item": "Sulfate",
+      "specification": "≤0.03%",
+      "result": "Conformed",
+      "analysis_method": "Colorimetry"
+    },
+    {
+      "item": "Dicyanamide",
+      "specification": "≤50ppm",
+      "result": "34ppm",
+      "analysis_method": "HPLC"
+    },
+    {
+      "item": "Dihydrotriazine",
+      "specification": "≤5ppm",
+      "result": "Conformed",
+      "analysis_method": "HPLC"
+    },
+    {
+      "item": "Cyanide",
+      "specification": "≤1ppm",
+      "result": "Conformed",
+      "analysis_method": "Colorimetry"
+    },
+    {
+      "item": "Heavy Metal",
+      "specification": "≤0.5ppm",
+      "result": "<0.5ppm",
+      "analysis_method": "USP43"
+    },
+    {
+      "item": "Arsenic (As)",
+      "specification": "≤0. 1ppm",
+      "result": "<0. 1ppm",
+      "analysis_method": "USP43"
+    },
+    {
+      "item": "Lead (Pb)",
+      "specification": "≤0. 1ppm",
+      "result": "<0. 1ppm",
+      "analysis_method": "USP43"
+    },
+    {
+      "item": "Mercury (Hg)",
+      "specification": "≤0. 1ppm",
+      "result": "<0. 1ppm",
+      "analysis_method": "USP43"
+    },
+    {
+      "item": "Cadmium (Cd)",
+      "specification": "≤0. 1ppm",
+      "result": "<0. 1ppm",
+      "analysis_method": "USP43"
+    },
+    {
+      "item": "Bulk Density",
+      "specification": "≥430g/L",
+      "result": "466g/L",
+      "analysis_method": "--"
+    },
+    {
+      "item": "Tapped Density",
+      "specification": "≥550g/L",
+      "result": "842g/L",
+      "analysis_method": "--"
+    },
+    {
+      "item": "Total Bacterial Count",
+      "specification": "≤100cfu/g",
+      "result": "<50cfu/g",
+      "analysis_method": "U.S.P.<61>"
+    },
+    {
+      "item": "Mould＆Yeast",
+      "specification": "≤100cfu/g",
+      "result": "<50cfu/g",
+      "analysis_method": "U.S.P.<61>"
+    },
+    {
+      "item": "E.Coli",
+      "specification": "Negative",
+      "result": "Negative",
+      "analysis_method": "U.S.P.<61>"
+    },
+    {
+      "item": "Salmonella",
+      "specification": "Negative/25g",
+      "result": "Negative",
+      "analysis_method": "U.S.P.<61>"
+    },
+    {
+      "item": "S.aureus",
+      "specification": "Negative",
+      "result": "Negative",
+      "analysis_method": "U.S.P.<61>"
+    }
+  ],
+  "conclusion": "Qualified",
+  "country_of_origin": "China",
+  "remark": "Stored in cool, dry and ventilated warehouse, and keep away from Moisture.",
+  "person_responsible_for_quality": "Xu Yuerong",
+  "analyst": "Liu Jing"
+}

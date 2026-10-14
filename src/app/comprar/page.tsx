@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Truck, ShieldCheck, RotateCcw } from "lucide-react";
+import { Truck, ShieldCheck, RotateCcw, FileText, Download } from "lucide-react";
 import { products } from "@/lib/products";
 import { formatARS } from "@/lib/format";
 import Reveal from "@/components/reveal";
@@ -161,6 +161,39 @@ export default function ComprarPage() {
               </div>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      <section className="px-3 pb-16 sm:px-6 lg:px-8">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-start gap-5 rounded-[2rem] bg-feather px-6 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-10">
+          <div className="flex flex-col gap-2">
+            <h2 className="font-display text-xl uppercase text-ink sm:text-2xl">
+              Ficha técnica del producto
+            </h2>
+            <p className="max-w-xl text-sm leading-relaxed text-graphite">
+              Revisá las especificaciones de FECA, su origen y las condiciones de
+              almacenamiento antes de comprar.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="/ficha-tecnica"
+              className="inline-flex h-12 items-center gap-2 rounded-full bg-brand px-6 text-xs font-bold uppercase tracking-[1px] text-white transition-colors hover:bg-brand-dark"
+            >
+              <FileText className="h-4 w-4" aria-hidden="true" />
+              Ver ficha técnica
+            </a>
+            <a
+              href="/ficha-tecnica/FECA-Ficha-Tecnica.pdf"
+              target="_blank"
+              rel="noreferrer"
+              download
+              className="inline-flex h-12 items-center gap-2 rounded-full bg-white px-6 text-xs font-bold uppercase tracking-[1px] text-brand shadow-sm transition-colors hover:bg-cream"
+            >
+              <Download className="h-4 w-4" aria-hidden="true" />
+              Descargar PDF
+            </a>
+          </div>
         </div>
       </section>
 

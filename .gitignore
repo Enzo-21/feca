@@ -42,3 +42,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# documentos generados en el build (prebuild/predev) — ver docs/certificados-por-lote.md
+/public/certificados/*.pdf
+/public/ficha-tecnica/*.pdf

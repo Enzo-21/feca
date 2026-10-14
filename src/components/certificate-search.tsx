@@ -1,8 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { FileSearch, FileText, Search, ShieldCheck } from "lucide-react";
-import { certificates, type Certificate } from "@/lib/certificates";
+import { FileSearch, FileText, Layers, Search, ShieldCheck } from "lucide-react";
+import {
+  certificates,
+  type Certificate,
+  type CertificateStatus,
+} from "@/lib/certificates";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,6 +14,12 @@ import { Input } from "@/components/ui/input";
 
 type CertificateSearchProps = {
   initialQuery?: string;
+};
+
+const STATUS_LABELS: Record<CertificateStatus, string> = {
+  approved: "Aprobado",
+  rejected: "Rechazado",
+  pending: "Pendiente",
 };
 
 export default function CertificateSearch({
@@ -154,6 +164,8 @@ function CertificateCard({
   certificate: Certificate;
   index: number;
 }) {
+  const hasRawMaterial = certificate.pageCount > 1;
+
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div className="flex items-center gap-4 border-b border-border bg-feather px-6 py-4">
@@ -184,16 +196,47 @@ function CertificateCard({
           >
             Análisis: {certificate.date}
           </Badge>
+          <Badge
+            variant={certificate.status === "approved" ? "default" : "outline"}
+            className={cn(
+              "px-3 py-1 text-xs font-bold uppercase tracking-wider",
+              certificate.status === "approved" && "bg-graphite text-white"
+            )}
+          >
+            {STATUS_LABELS[certificate.status]}
+          </Badge>
+          {certificate.demo && (
+            <Badge
+              variant="outline"
+              className="border-dashed px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-muted-foreground"
+            >
+              Ejemplo
+            </Badge>
+          )}
         </div>
 
-        <ul className="flex flex-col divide-y divide-border">
+        <ul
+          className={cn(
+            "flex flex-col divide-y divide-border",
+            certificate.tests.length > 8 && "max-h-72 overflow-y-auto pr-1"
+          )}
+        >
           {certificate.tests.map((test) => (
             <li
               key={test.name}
               className="flex items-center justify-between gap-3 py-2.5 text-sm"
             >
-              <span className="text-muted-foreground">{test.name}</span>
-              <span className="flex items-center gap-2 text-right">
+              <span className="flex min-w-0 flex-col">
+                <span className="truncate text-muted-foreground">
+                  {test.name}
+                </span>
+                {test.method ? (
+                  <span className="text-[0.65rem] uppercase tracking-wider text-muted-foreground/70">
+                    {test.method}
+                  </span>
+                ) : null}
+              </span>
+              <span className="flex shrink-0 items-center gap-2 text-right">
                 <span className="text-xs text-muted-foreground">
                   {test.spec}
                 </span>
@@ -204,6 +247,14 @@ function CertificateCard({
             </li>
           ))}
         </ul>
+
+        {hasRawMaterial && (
+          <p className="flex items-center gap-2 text-xs text-muted-foreground">
+            <Layers className="h-3.5 w-3.5 text-brand" aria-hidden="true" />
+            Incluye el certificado de materia prima del proveedor (
+            {certificate.pageCount} páginas).
+          </p>
+        )}
 
         <a
           href={`/certificados/${certificate.filename}`}

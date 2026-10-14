@@ -5,6 +5,7 @@ const nav = [
   { href: "/", label: "Inicio" },
   { href: "/comprar", label: "Comprar" },
   { href: "/calidad", label: "Verificar lote" },
+  { href: "/ficha-tecnica", label: "Ficha técnica" },
 ];
 
 const products = [

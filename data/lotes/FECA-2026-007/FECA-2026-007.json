@@ -1,0 +1,33 @@
+{
+  "demo": true,
+  "company_name": "",
+  "document_title": "CERTIFICATE OF ANALYSIS",
+  "date": "Mar.17,2026",
+  "product_information": {
+    "product_name": "FECA Creatina Monohidrato 300 g",
+    "batch_no": "FECA-2026-007"
+  },
+  "analysis_results": [
+    {
+      "item": "Creatina (HPLC)",
+      "specification": "≥ 99,5%",
+      "result": "≥ 99,9%",
+      "analysis_method": ""
+    },
+    {
+      "item": "Dioxina / HAP",
+      "specification": "No detectado",
+      "result": "No detectado",
+      "analysis_method": ""
+    },
+    {
+      "item": "Metales pesados",
+      "specification": "Ausencia",
+      "result": "Conforme",
+      "analysis_method": ""
+    }
+  ],
+  "conclusion": "Qualified",
+  "country_of_origin": "China",
+  "remark": ""
+}

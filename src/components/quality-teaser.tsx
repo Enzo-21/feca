@@ -63,6 +63,14 @@ export default function QualityTeaser() {
                 sello de calidad.
               </p>
             </form>
+            <p className="mt-4 text-center text-xs text-muted-foreground sm:text-left">
+              <a
+                href="/ficha-tecnica"
+                className="font-semibold text-graphite underline decoration-brand/40 underline-offset-4 transition-colors hover:text-brand"
+              >
+                Ver ficha técnica del producto →
+              </a>
+            </p>
           </Reveal>
         </div>
       </div>

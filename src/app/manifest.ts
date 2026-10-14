@@ -39,6 +39,11 @@ export default function manifest(): MetadataRoute.Manifest {
         short_name: "Calidad",
         url: "/calidad",
       },
+      {
+        name: "Ficha técnica",
+        short_name: "Ficha",
+        url: "/ficha-tecnica",
+      },
     ],
   };
 }

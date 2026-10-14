@@ -1,14 +1,16 @@
 import { expect, test } from "@playwright/test";
 
+const TOTAL = 13; // 12 lotes de ejemplo + 1 lote real (202604-013)
+
 test.describe("Calidad — certificados", () => {
-  test("muestra los 12 certificados por defecto", async ({ page }) => {
+  test(`muestra los ${TOTAL} certificados por defecto`, async ({ page }) => {
     await page.goto("/calidad");
 
     await expect(page.getByRole("heading", { name: "Calidad" })).toBeVisible();
     await expect(
-      page.getByText("12 certificados encontrados", { exact: true })
+      page.getByText(`${TOTAL} certificados encontrados`, { exact: true })
     ).toBeVisible();
-    await expect(page.locator("article")).toHaveCount(12);
+    await expect(page.locator("article")).toHaveCount(TOTAL);
   });
 
   test("filtra por número de lote en vivo", async ({ page }) => {
@@ -24,7 +26,7 @@ test.describe("Calidad — certificados", () => {
 
     await page.getByRole("button", { name: "Limpiar" }).click();
     await expect(
-      page.getByText("12 certificados encontrados", { exact: true })
+      page.getByText(`${TOTAL} certificados encontrados`, { exact: true })
     ).toBeVisible();
   });
 
@@ -44,9 +46,7 @@ test.describe("Calidad — certificados", () => {
 
     await page.getByLabel("Buscar por número de lote").fill("gdfg");
 
-    await expect(
-      page.getByText("No encontramos ese lote")
-    ).toBeVisible();
+    await expect(page.getByText("No encontramos ese lote")).toBeVisible();
     await expect(page.locator("article")).toHaveCount(0);
     await expect(
       page.getByText("0 certificados encontrados", { exact: true })
@@ -73,6 +73,23 @@ test.describe("Calidad — certificados", () => {
     await expect(pdf).toHaveAttribute("target", "_blank");
   });
 
+  test("el lote real incluye el certificado de materia prima (2 páginas)", async ({
+    page,
+  }) => {
+    await page.goto("/calidad?lote=202604-013");
+
+    await expect(page.getByText("202604-013", { exact: true })).toBeVisible();
+    await expect(
+      page.getByText("Creatine Monohydrate 200 Mesh", { exact: true })
+    ).toBeVisible();
+    await expect(
+      page.getByText(/Incluye el certificado de materia prima del proveedor/)
+    ).toBeVisible();
+
+    const pdf = page.getByRole("link", { name: "Descargar certificado PDF" });
+    await expect(pdf).toHaveAttribute("href", "/certificados/202604-013.pdf");
+  });
+
   test("los PDFs de certificados existen", async ({ page, request }) => {
     await page.goto("/calidad");
 
@@ -80,7 +97,7 @@ test.describe("Calidad — certificados", () => {
       .locator('a[href^="/certificados/"]')
       .evaluateAll((els) => els.map((el) => el.getAttribute("href") as string));
 
-    expect(links).toHaveLength(12);
+    expect(links).toHaveLength(TOTAL);
 
     for (const href of links) {
       const res = await request.get(href);

@@ -1,0 +1,33 @@
+{
+  "demo": true,
+  "company_name": "",
+  "document_title": "CERTIFICATE OF ANALYSIS",
+  "date": "Feb.25,2026",
+  "product_information": {
+    "product_name": "FECA Creatina Saborizada",
+    "batch_no": "FECA-2026-005"
+  },
+  "analysis_results": [
+    {
+      "item": "Creatina (HPLC)",
+      "specification": "≥ 99,5%",
+      "result": "≥ 99,8%",
+      "analysis_method": ""
+    },
+    {
+      "item": "Aromatizantes naturales",
+      "specification": "Conforme",
+      "result": "Conforme",
+      "analysis_method": ""
+    },
+    {
+      "item": "Metales pesados",
+      "specification": "Ausencia",
+      "result": "Conforme",
+      "analysis_method": ""
+    }
+  ],
+  "conclusion": "Qualified",
+  "country_of_origin": "China",
+  "remark": ""
+}
