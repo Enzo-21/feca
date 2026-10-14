@@ -13,6 +13,8 @@ conocimiento de quien lo implementó.
 | [`certificados-por-lote.md`](./certificados-por-lote.md) | **Operación** del pipeline de certificados: estructura de `data/lotes/`, formato del JSON del proveedor, flag `demo` (sin uso hoy), runbook paso a paso, comandos de verificación, reglas de armado (una página + merge) y limitaciones. |
 | [`ficha-tecnica-pdf.md`](./ficha-tecnica-pdf.md) | Cómo se genera **hoy** la Ficha Técnica (PDF de una página) del producto: datos, script, toolchain, cómo regenerarla y cómo verificarla. Historial de la implementación. |
 | [`plan-certificados-por-lote.md`](./plan-certificados-por-lote.md) | **Plan (historial)**: la arquitectura elegida —una carpeta por lote con el PDF de materia prima + JSON, generación automática del PDF de marca en el `prebuild`, e integración en la web—. Incluye fases, etapas, contrato de datos, riesgos y la investigación de build/Vercel. Estado: implementado. |
+| [`seo-pseo-agentes.md`](./seo-pseo-agentes.md) | **Operación** del posicionamiento: rutas nuevas, datos estructurados (JSON-LD), `robots.txt`/`sitemap.xml`, activos para agentes (`llms.txt`, `productos.json`, `lotes.json`), el generador `scripts/generate-seo-assets.mjs`, cómo agregar contenido/lotes y cómo verificar. |
+| [`plan-seo-pseo-agentes.md`](./plan-seo-pseo-agentes.md) | **Plan (posicionamiento)**: documento maestro que separa **SEO, pSEO, AEO/GEO y descubrimiento por agentes**, audita el estado actual del sitio, define fuentes únicas, plantillas, datos estructurados, backlog de contenido y roadmap por fases. Estado: implementado. |
 
 ## Convenciones
 
@@ -38,6 +40,10 @@ conocimiento de quien lo implementó.
   cargado.
 - Para operar el sistema, ver [`certificados-por-lote.md`](./certificados-por-lote.md);
   para el historial de la decisión, [`plan-certificados-por-lote.md`](./plan-certificados-por-lote.md).
+- El **posicionamiento** (SEO/pSEO/AEO y descubrimiento por agentes) está
+  implementado: rutas por producto, lote y hub de contenido, JSON-LD, `robots`/
+  `sitemap` y activos para agentes generados en build. Para operarlo, ver
+  [`seo-pseo-agentes.md`](./seo-pseo-agentes.md).
 
 ## Dependencias y seguridad
 

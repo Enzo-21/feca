@@ -10,6 +10,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Documentación del proyecto
 
+Antes de tocar el posicionamiento (rutas, metadatos, JSON-LD, `robots`/`sitemap`,
+`llms.txt` o el hub de contenido), leé `docs/seo-pseo-agentes.md`.
+
 Antes de tocar la generación de PDFs o la sección de calidad, leé `docs/`:
 
 - `docs/brand-pdf-system.md` — identidad visual de los PDFs de marca (colores,
