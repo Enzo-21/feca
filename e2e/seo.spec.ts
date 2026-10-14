@@ -48,6 +48,19 @@ test.describe("SEO — rastreo y datos estructurados", () => {
       expect(await res.text()).toContain("# FECA");
     }
 
+    // El índice curado enlaza la versión larga.
+    const llms = await (await request.get("/llms.txt")).text();
+    expect(llms).toContain("/llms-full.txt");
+
+    // `llms-full.txt` lleva el cuerpo completo de los artículos (no solo el
+    // resumen): debe incluir texto del cuerpo, una tabla, una FAQ y el lote.
+    const full = await (await request.get("/llms-full.txt")).text();
+    expect(full).toContain("Disolvé el polvo en un vaso de agua");
+    expect(full).toContain("| Presentación | Servicios aproximados |");
+    expect(full).toContain("#### Preguntas frecuentes");
+    expect(full).toContain("Lote 202604-013");
+    expect(full).toContain("Assay: 99,80%");
+
     const productos = await request.get("/productos.json");
     expect(productos.status()).toBe(200);
     const productosJson = await productos.json();

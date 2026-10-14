@@ -112,7 +112,47 @@ ${articleLines}
 - WhatsApp: ${WHATSAPP}
 - Calidad: ${url("/calidad")}
 - Ficha técnica: ${url("/ficha-tecnica")}
+
+## Optional
+
+- [Contenido completo](${url("/llms-full.txt")}): texto íntegro de las guías, resultados de laboratorio por lote y precios.
 `;
+}
+
+// Convierte los bloques tipados de un artículo a Markdown, para que
+// `llms-full.txt` lleve el contenido real (no solo el resumen).
+function renderBlocks(blocks, headingShift = 0) {
+  const hash = (level) => "#".repeat(level + headingShift);
+  return blocks
+    .map((block) => {
+      switch (block.type) {
+        case "h2":
+          return `${hash(2)} ${block.text}`;
+        case "h3":
+          return `${hash(3)} ${block.text}`;
+        case "p":
+          return block.text;
+        case "ul":
+          return block.items.map((item) => `- ${item}`).join("\n");
+        case "ol":
+          return block.items.map((item, i) => `${i + 1}. ${item}`).join("\n");
+        case "table": {
+          const head = `| ${block.head.join(" | ")} |`;
+          const sep = `| ${block.head.map(() => "---").join(" | ")} |`;
+          const rows = block.rows.map((row) => `| ${row.join(" | ")} |`).join("\n");
+          const caption = block.caption ? `\n\n_${block.caption}_` : "";
+          return `${head}\n${sep}\n${rows}${caption}`;
+        }
+        case "callout": {
+          const title = block.title ? `**${block.title}.** ` : "";
+          return `> ${title}${block.text}`;
+        }
+        default:
+          return "";
+      }
+    })
+    .filter(Boolean)
+    .join("\n\n");
 }
 
 function buildLlmsFullTxt(lots) {
@@ -154,17 +194,32 @@ function buildLlmsFullTxt(lots) {
     .join("\n\n");
 
   const articlesFull = articles
-    .map((article) =>
-      [
-        `### ${article.title}`,
+    .map((article) => {
+      const faqs = article.faqs.length
+        ? [
+            "#### Preguntas frecuentes",
+            ...article.faqs.map((faq) => `**${faq.question}**\n\n${faq.answer}`),
+          ].join("\n\n")
+        : "";
+      const meta = [
         `- URL: ${url(`/creatina/${article.slug}`)}`,
         `- Actualizado: ${article.updated}`,
-        `- Respuesta directa: ${article.intro}`,
-      ].join("\n")
-    )
-    .join("\n\n");
+        `- Intención: ${article.intent}`,
+        `- Tiempo de lectura: ${article.readingMinutes} min`,
+      ].join("\n");
+      return [
+        `### ${article.title}`,
+        meta,
+        `**Respuesta directa:** ${article.intro}`,
+        renderBlocks(article.blocks, 2),
+        faqs,
+      ]
+        .filter((part) => part && part.length > 0)
+        .join("\n\n");
+    })
+    .join("\n\n---\n\n");
 
-  return `${SITE_NAME} — contenido completo para agentes
+  return `# ${SITE_NAME} — contenido completo para agentes
 
 ## Productos
 

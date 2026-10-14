@@ -84,8 +84,8 @@ Googlebot**: AI Overviews/AI Mode se alimentan del índice normal.
 | `public/productos.json` | catálogo (slug, precio ARS, precio/kg, servicios, URL, imagen). |
 | `public/lotes.json` | índice de certificados. |
 | `public/lotes/<LOT>.json` | detalle de un lote (tests, fechas, PDFs). |
-| `public/llms.txt` | resumen en formato [llms.txt](https://llmstxt.org/). |
-| `public/llms-full.txt` | versión extendida (incluye resultados y guías). |
+| `public/llms.txt` | índice curado en formato [llms.txt](https://llmstxt.org/); enlaza la versión larga en `## Optional`. |
+| `public/llms-full.txt` | texto **íntegro** de las guías (encabezados, listas, tablas, callouts y FAQ renderizados a Markdown) + resultados por lote + precios. |
 
 El script importa los `.ts` con el *type-stripping* nativo de Node (`node ≥ 22`;
 los `import type` se eliminan, por eso alcanza con resolver a `.ts`).
