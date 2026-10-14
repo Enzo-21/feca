@@ -6,18 +6,20 @@ const nav = [
   { href: "/comprar", label: "Comprar" },
   { href: "/calidad", label: "Verificar lote" },
   { href: "/ficha-tecnica", label: "Ficha técnica" },
+  { href: "/creatina", label: "Aprender" },
+  { href: "/nosotros", label: "Nosotros" },
 ];
 
 const products = [
-  { href: "/comprar#creatina-monohidrato-300g", label: "Creatina 300 g" },
-  { href: "/comprar#creatina-monohidrato-500g", label: "Creatina 500 g" },
-  { href: "/comprar#creatina-monohidrato-1kg", label: "Creatina 1 kg" },
+  { href: "/productos/creatina-monohidrato-300g", label: "Creatina 300 g" },
+  { href: "/productos/creatina-monohidrato-500g", label: "Creatina 500 g" },
+  { href: "/productos/creatina-monohidrato-1kg", label: "Creatina 1 kg" },
 ];
 
 const legal = [
-  { href: "#", label: "Términos y condiciones" },
-  { href: "#", label: "Política de privacidad" },
-  { href: "#", label: "Contacto" },
+  { href: "/terminos", label: "Términos y condiciones" },
+  { href: "/privacidad", label: "Política de privacidad" },
+  { href: "/contacto", label: "Contacto" },
 ];
 
 export default function Footer() {
@@ -72,12 +74,12 @@ export default function Footer() {
           <p className="max-w-xs text-sm leading-relaxed text-white/80">
             Verificá el certificado de tu lote en nuestra sección Calidad.
           </p>
-          <a
+          <Link
             href="/calidad"
             className="mt-2 inline-flex min-h-12 items-center rounded-full bg-white px-6 text-xs font-bold uppercase tracking-[1px] text-brand transition-transform hover:-translate-y-0.5"
           >
             Verificar lote
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -86,13 +88,13 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} FECA®. Todos los derechos reservados.</p>
           <div className="flex flex-wrap items-center justify-center gap-6">
             {legal.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 className="transition-colors hover:text-white"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

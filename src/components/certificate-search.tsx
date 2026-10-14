@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { FileSearch, FileText, Layers, Search, ShieldCheck } from "lucide-react";
 import {
   certificates,
@@ -258,17 +259,25 @@ function CertificateCard({
           </p>
         )}
 
-        <a
-          href={`/certificados/${certificate.filename}`}
-          target="_blank"
-          rel="noreferrer"
-          className={cn(
-            "group/pdf mt-auto inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-graphite text-sm font-bold uppercase tracking-[1px] text-white transition-colors hover:bg-ink"
-          )}
-        >
-          <FileText className="h-4 w-4" />
-          Descargar certificado PDF
-        </a>
+        <div className="mt-auto flex flex-col gap-2">
+          <a
+            href={`/certificados/${certificate.filename}`}
+            target="_blank"
+            rel="noreferrer"
+            className={cn(
+              "group/pdf inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-graphite text-sm font-bold uppercase tracking-[1px] text-white transition-colors hover:bg-ink"
+            )}
+          >
+            <FileText className="h-4 w-4" />
+            Descargar certificado PDF
+          </a>
+          <Link
+            href={`/calidad/${certificate.lot}`}
+            className="inline-flex h-11 w-full items-center justify-center rounded-full border-2 border-brand text-xs font-bold uppercase tracking-[1px] text-brand transition-colors hover:bg-brand-light/60"
+          >
+            Ver detalle del lote
+          </Link>
+        </div>
       </div>
     </article>
   );

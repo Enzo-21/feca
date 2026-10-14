@@ -1,0 +1,133 @@
+import { expect, test, type Page } from "@playwright/test";
+
+/** Devuelve todos los bloques JSON-LD de la página, aplanados. */
+async function getJsonLd(page: Page): Promise<Record<string, unknown>[]> {
+  const blobs = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  const nodes: Record<string, unknown>[] = [];
+  for (const blob of blobs) {
+    const parsed = JSON.parse(blob);
+    if (Array.isArray(parsed)) nodes.push(...parsed);
+    else nodes.push(parsed);
+  }
+  return nodes;
+}
+
+const typesOf = (nodes: Record<string, unknown>[]) =>
+  nodes.map((n) => String(n["@type"]));
+
+test.describe("SEO — rastreo y datos estructurados", () => {
+  test("robots.txt permite crawlers y declara el sitemap", async ({ request }) => {
+    const res = await request.get("/robots.txt");
+    expect(res.status()).toBe(200);
+    const body = await res.text();
+    expect(body).toContain("Sitemap: https://feca.com.ar/sitemap.xml");
+    expect(body).toContain("User-Agent: GPTBot");
+    expect(body).toContain("Allow: /");
+  });
+
+  test("sitemap.xml incluye productos, artículos y lotes", async ({ request }) => {
+    const res = await request.get("/sitemap.xml");
+    expect(res.status()).toBe(200);
+    const xml = await res.text();
+    for (const path of [
+      "https://feca.com.ar/productos/creatina-monohidrato-300g",
+      "https://feca.com.ar/creatina/que-es",
+      "https://feca.com.ar/calidad/202604-013",
+      "https://feca.com.ar/nosotros",
+    ]) {
+      expect(xml, `sitemap debería incluir ${path}`).toContain(path);
+    }
+  });
+
+  test("los activos para agentes existen y son válidos", async ({ request }) => {
+    for (const file of ["/llms.txt", "/llms-full.txt"]) {
+      const res = await request.get(file);
+      expect(res.status(), `${file}`).toBe(200);
+      expect(await res.text()).toContain("# FECA");
+    }
+
+    const productos = await request.get("/productos.json");
+    expect(productos.status()).toBe(200);
+    const productosJson = await productos.json();
+    expect(productosJson.products).toHaveLength(3);
+    expect(productosJson.products[0]).toHaveProperty("url");
+    expect(productosJson.currency).toBe("ARS");
+
+    const lotes = await request.get("/lotes.json");
+    expect(lotes.status()).toBe(200);
+    const lotesJson = await lotes.json();
+    expect(lotesJson.lots).toHaveLength(1);
+
+    const lote = await request.get("/lotes/202604-013.json");
+    expect(lote.status()).toBe(200);
+    const loteJson = await lote.json();
+    expect(loteJson.lot).toBe("202604-013");
+    expect(Array.isArray(loteJson.tests)).toBeTruthy();
+  });
+
+  test("home emite Organization, WebSite y FAQPage", async ({ page }) => {
+    await page.goto("/");
+    const types = typesOf(await getJsonLd(page));
+    expect(types).toContain("Organization");
+    expect(types).toContain("WebSite");
+    expect(types).toContain("FAQPage");
+  });
+
+  test("ficha de producto emite Product + Offer y breadcrumbs", async ({
+    page,
+  }) => {
+    await page.goto("/productos/creatina-monohidrato-500g");
+
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("500 g");
+
+    const nodes = await getJsonLd(page);
+    const product = nodes.find((n) => n["@type"] === "Product") as
+      | Record<string, unknown>
+      | undefined;
+    expect(product).toBeTruthy();
+    const offers = product?.offers as Record<string, unknown>;
+    expect(offers.priceCurrency).toBe("ARS");
+    expect(offers.price).toBe(43500);
+    expect(nodes.some((n) => n["@type"] === "BreadcrumbList")).toBeTruthy();
+  });
+
+  test("artículo del hub emite Article y FAQPage", async ({ page }) => {
+    await page.goto("/creatina/que-es");
+
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+
+    const types = typesOf(await getJsonLd(page));
+    expect(types).toContain("Article");
+    expect(types).toContain("FAQPage");
+    expect(types).toContain("BreadcrumbList");
+  });
+
+  test("el hub de creatina lista los artículos enlazados", async ({ page }) => {
+    await page.goto("/creatina");
+    const links = page.locator('a[href^="/creatina/"]');
+    expect(await links.count()).toBeGreaterThanOrEqual(12);
+  });
+
+  test("la página de lote muestra el análisis y su JSON-LD", async ({ page }) => {
+    await page.goto("/calidad/202604-013");
+
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(
+      "Certificado"
+    );
+    await expect(page.getByText("202604-013").first()).toBeVisible();
+
+    const types = typesOf(await getJsonLd(page));
+    expect(types).toContain("Product");
+    expect(types).toContain("BreadcrumbList");
+  });
+
+  test("páginas legales responden y son indexables", async ({ page }) => {
+    for (const route of ["/nosotros", "/contacto", "/terminos", "/privacidad"]) {
+      const res = await page.goto(route);
+      expect(res?.status(), route).toBe(200);
+      await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    }
+  });
+});

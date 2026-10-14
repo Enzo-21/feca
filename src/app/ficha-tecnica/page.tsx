@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   title: "Ficha técnica",
   description:
     "Consultá la ficha técnica pública de FECA: creatina monohidrato 200 mesh, con especificaciones, origen y condiciones de almacenamiento. Descargá el documento en PDF.",
+  alternates: { canonical: "/ficha-tecnica" },
 };
 
 export default function FichaTecnicaPage() {

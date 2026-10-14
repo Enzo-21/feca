@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Truck, ShieldCheck, RotateCcw, FileText, Download } from "lucide-react";
 import { products } from "@/lib/products";
 import { formatARS } from "@/lib/format";
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
   title: "Comprar",
   description:
     "Elegí tu FECA: creatina monohidrato pura en 300 g, 500 g o 1 kg. Coordiná tu compra por WhatsApp con un vendedor asignado por provincia.",
+  alternates: { canonical: "/comprar" },
 };
 
 const perks = [
@@ -72,7 +74,10 @@ export default function ComprarPage() {
                   id={product.slug}
                   className="group flex h-full scroll-mt-28 flex-col overflow-hidden rounded-3xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <div className="relative aspect-square overflow-hidden bg-feather">
+                  <Link
+                    href={`/productos/${product.slug}`}
+                    className="relative block aspect-square overflow-hidden bg-feather"
+                  >
                     <Image
                       src={product.image}
                       alt={`${product.name} ${product.size}`}
@@ -86,7 +91,7 @@ export default function ComprarPage() {
                         {product.badge}
                       </Badge>
                     )}
-                  </div>
+                  </Link>
 
                   <div className="flex flex-1 flex-col gap-2.5 p-6">
                     <div className="flex items-start justify-between gap-3">
@@ -95,7 +100,12 @@ export default function ComprarPage() {
                           {product.tagline}
                         </p>
                         <h2 className="mt-1 font-display text-xl leading-snug uppercase text-ink">
-                          {product.name}
+                          <Link
+                            href={`/productos/${product.slug}`}
+                            className="transition-colors hover:text-brand"
+                          >
+                            {product.name}
+                          </Link>
                         </h2>
                       </div>
                       <Badge

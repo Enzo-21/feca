@@ -5,7 +5,9 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { CartProvider } from "@/components/cart/cart-provider";
 import CartDrawer from "@/components/cart/cart-drawer";
+import JsonLd from "@/components/json-ld";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { organizationSchema, websiteSchema } from "@/lib/structured-data";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -85,6 +87,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${montserrat.variable} ${zenDots.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <CartProvider>
           <Header />
           <main className="flex flex-1 flex-col">{children}</main>

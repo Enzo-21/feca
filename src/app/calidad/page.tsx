@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Calidad — Verificar lote",
   description:
     "Verificá la autenticidad de tu FECA: ingresá el número de lote de tu envase y descargá el certificado de análisis correspondiente.",
+  alternates: { canonical: "/calidad" },
 };
 
 export default async function CalidadPage(props: PageProps<"/calidad">) {

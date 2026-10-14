@@ -46,3 +46,10 @@ next-env.d.ts
 # documentos generados en el build (prebuild/predev) — ver docs/certificados-por-lote.md
 /public/certificados/*.pdf
 /public/ficha-tecnica/*.pdf
+
+# activos SEO/agentes generados en el build — ver docs/plan-seo-pseo-agentes.md
+/public/productos.json
+/public/lotes.json
+/public/lotes/
+/public/llms.txt
+/public/llms-full.txt

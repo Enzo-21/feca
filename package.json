@@ -4,14 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "predev": "node scripts/generate-documentos.mjs",
+    "predev": "node scripts/generate-documentos.mjs && node scripts/generate-seo-assets.mjs",
     "build": "next build",
-    "prebuild": "node scripts/generate-documentos.mjs",
+    "prebuild": "node scripts/generate-documentos.mjs && node scripts/generate-seo-assets.mjs",
     "start": "next start",
     "lint": "eslint",
     "test:e2e": "playwright test",
     "documentos": "node scripts/generate-documentos.mjs",
     "documentos:check": "node scripts/generate-documentos.mjs --check",
+    "seo": "node scripts/generate-seo-assets.mjs",
     "pdf:ficha-tecnica": "node scripts/generate-documentos.mjs --only=ficha"
   },
   "dependencies": {

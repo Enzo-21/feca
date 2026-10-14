@@ -11,7 +11,24 @@ test.describe("Estabilidad global", () => {
     });
     page.on("pageerror", (err) => errors.push(`pageerror: ${err.message}`));
 
-    for (const route of ["/", "/comprar", "/calidad", "/calidad?lote=202604-013"]) {
+    const routes = [
+      "/",
+      "/comprar",
+      "/calidad",
+      "/calidad?lote=202604-013",
+      "/calidad/202604-013",
+      "/ficha-tecnica",
+      "/creatina",
+      "/creatina/que-es",
+      "/productos/creatina-monohidrato-300g",
+      "/productos/creatina-monohidrato-500g",
+      "/productos/creatina-monohidrato-1kg",
+      "/nosotros",
+      "/contacto",
+      "/terminos",
+      "/privacidad",
+    ];
+    for (const route of routes) {
       const res = await page.goto(route);
       expect(res?.status(), `${route} no responde 200`).toBe(200);
     }
