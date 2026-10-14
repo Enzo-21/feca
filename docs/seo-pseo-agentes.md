@@ -105,6 +105,11 @@ Reglas de contenido (YMYL): sin *claims* médicos ("cura", "trata", "previene");
 usar fórmulas prudentes ("ayuda a", "según la evidencia"); derivar a un
 profesional ante condiciones médicas.
 
+Autoría y revisión: la autoría es **institucional (FECA)**. Los campos
+opcionales `published` y `reviewedBy` se muestran en la página y se emiten en el
+JSON-LD **solo si existen**; agregá `reviewedBy` únicamente con una persona real
+y verificable. Reglas completas en [`autoria-eeat.md`](./autoria-eeat.md).
+
 ## Calidad: agregar un lote
 
 Los lotes viven en `data/lotes/<LOT>/<LOT>.json` (ver
@@ -144,5 +149,11 @@ validez de los activos de agentes, y JSON-LD de home, producto, artículo y lote
   también. Se sumaron 5 guías extra fuera del backlog original
   (`creatina-para-mujeres`, `creatina-engorda`, `creatina-y-cafeina`,
   `creatina-veganos`, `creatina-adultos-mayores`): el hub tiene **17**
-  artículos. Falta autoría/revisión experta (E-E-A-T) y comparativas por
-  criterios.
+  artículos.
+- Autoría/revisión experta: las **reglas** están escritas
+  ([`autoria-eeat.md`](./autoria-eeat.md)) y el código soporta
+  `published`/`reviewedBy` (página + JSON-LD). Falta una **persona revisora
+  real** con credencial verificable: no se inventa, así que hoy la autoría es
+  institucional (FECA).
+- Comparativas por criterios: pendiente (hacerlas por criterios, nunca con datos
+  inventados de marcas competidoras).

@@ -111,10 +111,19 @@ test.describe("SEO — rastreo y datos estructurados", () => {
 
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 
-    const types = typesOf(await getJsonLd(page));
+    const nodes = await getJsonLd(page);
+    const types = typesOf(nodes);
     expect(types).toContain("Article");
     expect(types).toContain("FAQPage");
     expect(types).toContain("BreadcrumbList");
+
+    // E-E-A-T: la autoría es institucional (FECA). No se inventan personas ni
+    // credenciales; mientras no haya un revisor real, no hay `reviewedBy`.
+    const article = nodes.find((n) => n["@type"] === "Article")!;
+    const author = article.author as Record<string, unknown>;
+    expect(author["@type"]).toBe("Organization");
+    expect(author.name).toBe("FECA");
+    expect(article.reviewedBy).toBeUndefined();
   });
 
   test("el hub de creatina lista los artículos enlazados", async ({ page }) => {

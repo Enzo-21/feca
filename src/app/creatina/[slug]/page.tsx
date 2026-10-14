@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CalendarClock, Clock, HelpCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  CalendarClock,
+  CalendarDays,
+  Clock,
+  HelpCircle,
+  UserCheck,
+} from "lucide-react";
 import Reveal from "@/components/reveal";
 import Breadcrumbs from "@/components/breadcrumbs";
 import ArticleBlocks from "@/components/article-blocks";
@@ -79,10 +86,22 @@ export default async function ArticlePage(props: {
                 <Clock className="h-4 w-4 text-brand" aria-hidden="true" />
                 {article.readingMinutes} min de lectura
               </span>
+              {article.published && (
+                <span className="flex items-center gap-2">
+                  <CalendarDays className="h-4 w-4 text-brand" aria-hidden="true" />
+                  Publicado {article.published}
+                </span>
+              )}
               <span className="flex items-center gap-2">
                 <CalendarClock className="h-4 w-4 text-brand" aria-hidden="true" />
                 Actualizado {article.updated}
               </span>
+              {article.reviewedBy && (
+                <span className="flex items-center gap-2">
+                  <UserCheck className="h-4 w-4 text-brand" aria-hidden="true" />
+                  Revisado por {article.reviewedBy}
+                </span>
+              )}
             </div>
             <h1 className="font-display text-3xl leading-tight uppercase text-ink sm:text-4xl lg:text-5xl">
               {article.title}

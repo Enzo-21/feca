@@ -14,6 +14,7 @@ conocimiento de quien lo implementó.
 | [`ficha-tecnica-pdf.md`](./ficha-tecnica-pdf.md) | Cómo se genera **hoy** la Ficha Técnica (PDF de una página) del producto: datos, script, toolchain, cómo regenerarla y cómo verificarla. Historial de la implementación. |
 | [`plan-certificados-por-lote.md`](./plan-certificados-por-lote.md) | **Plan (historial)**: la arquitectura elegida —una carpeta por lote con el PDF de materia prima + JSON, generación automática del PDF de marca en el `prebuild`, e integración en la web—. Incluye fases, etapas, contrato de datos, riesgos y la investigación de build/Vercel. Estado: implementado. |
 | [`seo-pseo-agentes.md`](./seo-pseo-agentes.md) | **Operación** del posicionamiento: rutas nuevas, datos estructurados (JSON-LD), `robots.txt`/`sitemap.xml`, activos para agentes (`llms.txt`, `productos.json`, `lotes.json`), el generador `scripts/generate-seo-assets.mjs`, cómo agregar contenido/lotes y cómo verificar. |
+| [`autoria-eeat.md`](./autoria-eeat.md) | **Guía editorial** de autoría y E-E-A-T: regla de no inventar personas/credenciales, roles (FECA institucional vs. revisor profesional), dónde viven `published`/`reviewedBy` en código, claims permitidos y checklist de publicación. |
 | [`plan-seo-pseo-agentes.md`](./plan-seo-pseo-agentes.md) | **Plan (posicionamiento)**: documento maestro que separa **SEO, pSEO, AEO/GEO y descubrimiento por agentes**, audita el estado actual del sitio, define fuentes únicas, plantillas, datos estructurados, backlog de contenido y roadmap por fases. Estado: implementado. |
 
 ## Convenciones
