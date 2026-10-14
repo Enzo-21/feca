@@ -137,8 +137,6 @@ export function buildCoaDocument(lot, options = {}) {
       ),
       h(FooterBand, {
         title: "FECA® — Certificado de análisis de materia prima.",
-        disclaimer:
-          "Documento público de carácter informativo. No posee validez oficial.",
         pageLabel: options.pageLabel || "Página 1",
       })
     )

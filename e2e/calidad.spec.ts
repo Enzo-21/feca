@@ -96,4 +96,14 @@ test.describe("Calidad — certificados", () => {
       expect(res.ok(), `${href} no responde 200`).toBeTruthy();
     }
   });
+
+  test("ya no incluye la tarjeta de ficha técnica (se movió al inicio)", async ({
+    page,
+  }) => {
+    await page.goto("/calidad");
+
+    await expect(
+      page.getByRole("heading", { name: "Ficha técnica del producto" })
+    ).toHaveCount(0);
+  });
 });

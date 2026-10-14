@@ -9,7 +9,7 @@ Los tokens provienen de `src/app/globals.css` y del logo en
 `src/components/logo.tsx`. **No inventes colores, tipografías ni formas nuevas.**
 
 > **Implementación de referencia:** los primitivos de este sistema (franjas,
-> títulos, tablas, chips, sello, logo) viven en `scripts/lib/brand-pdf.mjs` y
+> títulos, tablas, chips, logo) viven en `scripts/lib/brand-pdf.mjs` y
 > son los que usan la Ficha Técnica (`scripts/lib/ficha.mjs`) y el CoA
 > (`scripts/lib/coa.mjs`). Si vas a generar un PDF de marca, reutilizá ese
 > módulo en vez de redibujar colores, fuentes o paths.
@@ -18,7 +18,7 @@ Los tokens provienen de `src/app/globals.css` y del logo en
 
 | Token | Hex | Uso en documentos |
 | --- | --- | --- |
-| `brand` | `#cc5e21` | Franja de encabezado, acentos, valores numéricos destacados, reglas/eyebrow, bordes de la "sección de sello". |
+| `brand` | `#cc5e21` | Franja de encabezado, acentos, valores numéricos destacados, reglas/eyebrow. |
 | `brand-dark` | `#a34a18` | Hover / énfasis secundario (sobre todo en web). |
 | `brand-light` | `#f2d8c4` | Fondos suaves, chips. |
 | `sand` | `#ccb89d` | Regla fina bajo el título (línea divisoria). |
@@ -85,8 +85,9 @@ Estructura estándar (se ve igual en el certificado y en la ficha técnica):
    - Campos etiqueta/valor (label gris pequeño arriba, valor `#3f4140`).
    - Tablas: encabezado `#f1f1f1`, filas alternadas, sin bordes verticales.
    - Bloques de nota: fondo `cream` + `border-left` `#cc5e21`.
-4. **Franja de pie** — full-width, `#3f4140`, texto blanco chico + disclaimer.
-   Opcional: cajita "SELLO DE CALIDAD / FECA" con borde blanco translúcido.
+4. **Franja de pie** — full-width, `#3f4140`, texto blanco chico (título de marca).
+   En el CoA, a la derecha, la etiqueta de página. Sin disclaimer ni sello.
+   La ficha técnica lleva en el pie el tagline "Impulsa tu rutina".
 
 ## 5. Reglas no negociables
 
@@ -110,9 +111,9 @@ Estructura estándar (se ve igual en el certificado y en la ficha técnica):
   [`certificados-por-lote.md`](./certificados-por-lote.md)). Si el contenido de
   marca crece, primero compactar; recién después evaluar multi-página (y en ese
   caso numera y repite encabezado).
-- **Disclaimers**: los documentos públicos llevan una leyenda en el pie aclarando
-  que es informativo (ej. "Documento público de carácter informativo. No posee
-  validez oficial.").
+- **Pie sin disclaimer**: los PDFs **no** llevan la leyenda "No posee validez
+  oficial" ni el sello "SELLO DE CALIDAD / FECA". El pie muestra solo el título de
+  marca (y la etiqueta de página en el CoA); la ficha lleva "Impulsa tu rutina".
 - **Rastro de marca**: `FECA®` con el símbolo de marca registrada donde figure.
 
 ## 6. Checklist de verificación (antes de dar por bueno un PDF)

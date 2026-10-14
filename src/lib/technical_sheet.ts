@@ -3,7 +3,7 @@ export const technicalSheet = {
     product_name: "Creatine Monohydrate 200 mesh",
     molecular_formula: "C4H9N3O2 • H2O",
     molecular_weight: 149.15,
-    packing_spec: "25kg/carton/bag"
+    packing_spec: "300 gr. / 500 gr. / 1 kg. | Bag"
   },
   specifications: [
     {

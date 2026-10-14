@@ -105,11 +105,7 @@ export function buildFichaDocument(sheet) {
         h(DataTable, { columns: TABLE_COLUMNS, rows }),
         h(NoteBlock, { label: "Condiciones de almacenamiento" }, remark)
       ),
-      h(FooterBand, {
-        title: "FECA® — Ficha técnica del producto. Impulsa tu rutina.",
-        disclaimer: "Documento público de carácter informativo. No posee validez oficial.",
-        pageLabel: "Página 1",
-      })
+      h(FooterBand, { title: "Impulsa tu rutina" })
     )
   );
 }

@@ -155,4 +155,27 @@ test.describe("Home — secciones", () => {
       page.getByText("1 certificado encontrado", { exact: true })
     ).toBeVisible();
   });
+
+  test("la ficha técnica del producto aparece antes del FAQ", async ({ page }) => {
+    await page.goto("/");
+
+    const ficha = page.getByRole("heading", {
+      name: "Ficha técnica del producto",
+    });
+    const faq = page.getByRole("heading", { name: "Preguntas frecuentes" });
+
+    await faq.scrollIntoViewIfNeeded();
+    await expect(ficha).toBeVisible();
+    await expect(faq).toBeVisible();
+
+    const fichaBox = await ficha.boundingBox();
+    const faqBox = await faq.boundingBox();
+    expect(fichaBox).not.toBeNull();
+    expect(faqBox).not.toBeNull();
+    expect(fichaBox!.y).toBeLessThan(faqBox!.y);
+
+    await expect(
+      page.getByRole("link", { name: "Ver ficha técnica", exact: true })
+    ).toHaveAttribute("href", "/ficha-tecnica");
+  });
 });

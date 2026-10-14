@@ -401,8 +401,8 @@ export function StatusChip({ label, tone = "brand" }) {
   );
 }
 
-/** Franja de pie (tinta) con disclaimer + sello. */
-export function FooterBand({ title, disclaimer, pageLabel }) {
+/** Franja de pie (tinta) con título y, opcionalmente, etiqueta de página. */
+export function FooterBand({ title, pageLabel }) {
   return h(
     View,
     {
@@ -416,25 +416,17 @@ export function FooterBand({ title, disclaimer, pageLabel }) {
       },
     },
     h(
-      View,
-      { style: { flexDirection: "column", flexGrow: 1, paddingRight: 12 } },
-      h(
-        Text,
-        { style: { fontSize: 7, fontWeight: 700, color: COLORS.white } },
-        title
-      ),
-      h(
-        Text,
-        {
-          style: {
-            marginTop: 2,
-            fontSize: 6.4,
-            fontWeight: 500,
-            color: "rgba(255,255,255,0.7)",
-          },
+      Text,
+      {
+        style: {
+          flexGrow: 1,
+          paddingRight: 12,
+          fontSize: 7,
+          fontWeight: 700,
+          color: COLORS.white,
         },
-        disclaimer
-      )
+      },
+      title
     ),
     pageLabel
       ? h(
@@ -442,37 +434,7 @@ export function FooterBand({ title, disclaimer, pageLabel }) {
           { style: { fontSize: 6.4, fontWeight: 600, color: "rgba(255,255,255,0.8)" } },
           pageLabel
         )
-      : null,
-    h(
-      View,
-      {
-        style: {
-          borderWidth: 0.7,
-          borderColor: "rgba(255,255,255,0.35)",
-          paddingVertical: 4,
-          paddingHorizontal: 8,
-          alignItems: "center",
-        },
-      },
-      h(
-        Text,
-        { style: { fontSize: 5.8, fontWeight: 800, letterSpacing: 1.4, color: COLORS.white } },
-        "SELLO DE CALIDAD"
-      ),
-      h(
-        Text,
-        {
-          style: {
-            marginTop: 1,
-            fontSize: 5.4,
-            fontWeight: 600,
-            letterSpacing: 1,
-            color: "rgba(255,255,255,0.72)",
-          },
-        },
-        "FECA"
-      )
-    )
+      : null
   );
 }
 

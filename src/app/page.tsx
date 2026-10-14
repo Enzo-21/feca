@@ -4,6 +4,7 @@ import Applications from "@/components/applications";
 import Features from "@/components/features";
 import QualityTeaser from "@/components/quality-teaser";
 import ProductsPreview from "@/components/products-preview";
+import TechnicalSheetCard from "@/components/technical-sheet-card";
 import Faq from "@/components/faq";
 
 const marqueeItems = [
@@ -29,6 +30,9 @@ export default function Home() {
         <QualityTeaser />
       </div>
       <ProductsPreview />
+      <div className="mt-4">
+        <TechnicalSheetCard />
+      </div>
       <Faq />
     </>
   );
