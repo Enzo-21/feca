@@ -14,7 +14,7 @@ export default function QualityTeaser() {
               Sello de Calidad FECA®
             </p>
             <h2 className="font-display text-3xl leading-[1.05] uppercase text-ink sm:text-4xl">
-              Donde está en la etiqueta, hay calidad en el interior
+              Calidad de producto, disponible y comprobable
             </h2>
             <p className="max-w-xl text-base leading-relaxed text-graphite">
               Cada envase de FECA lleva un número de lote único. Ingresalo aquí y
