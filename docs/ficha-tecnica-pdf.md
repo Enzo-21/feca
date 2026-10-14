@@ -90,7 +90,7 @@ Mismo lenguaje que el certificado (ver `brand-pdf-system.md`):
   especificaciones numéricas en `#cc5e21`.
 - Bloque **Condiciones de almacenamiento** (fondo `#f7f6f5`, `border-left`
   `#cc5e21`).
-- Pie `#3f4140` con el tagline "Impulsa tu rutina" (sin disclaimer ni sello).
+- Pie `#3f4140` con "FECA® — Impulsa tu rutina" (sin disclaimer ni sello).
 
 ## 5. Restricción de una página
 

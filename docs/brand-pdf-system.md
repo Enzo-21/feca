@@ -87,7 +87,7 @@ Estructura estándar (se ve igual en el certificado y en la ficha técnica):
    - Bloques de nota: fondo `cream` + `border-left` `#cc5e21`.
 4. **Franja de pie** — full-width, `#3f4140`, texto blanco chico (título de marca).
    En el CoA, a la derecha, la etiqueta de página. Sin disclaimer ni sello.
-   La ficha técnica lleva en el pie el tagline "Impulsa tu rutina".
+   La ficha técnica lleva en el pie "FECA® — Impulsa tu rutina".
 
 ## 5. Reglas no negociables
 

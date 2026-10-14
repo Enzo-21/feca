@@ -105,7 +105,7 @@ export function buildFichaDocument(sheet) {
         h(DataTable, { columns: TABLE_COLUMNS, rows }),
         h(NoteBlock, { label: "Condiciones de almacenamiento" }, remark)
       ),
-      h(FooterBand, { title: "Impulsa tu rutina" })
+      h(FooterBand, { title: "FECA® — Impulsa tu rutina" })
     )
   );
 }
