@@ -34,6 +34,11 @@ export default function Header() {
     };
   }, [open]);
 
+  // `"/"` es prefijo de toda ruta, así que se compara exacto; el resto, por
+  // prefijo (p. ej. `/creatina/que-es` marca `/creatina`).
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
     <header
       className={cn(
@@ -50,10 +55,7 @@ export default function Header() {
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Principal">
           {navLinks.map((link) => {
-            const active =
-              link.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(link.href);
+            const active = isActive(link.href);
             return (
               <Link
                 key={link.href}
@@ -107,7 +109,7 @@ export default function Header() {
               onClick={() => setOpen(false)}
               className={cn(
                 "rounded-2xl px-4 py-4 text-2xl font-semibold uppercase tracking-wide transition-colors",
-                pathname.startsWith(link.href)
+                isActive(link.href)
                   ? "bg-brand-light text-brand"
                   : "text-graphite hover:bg-muted"
               )}

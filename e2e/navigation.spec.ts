@@ -7,11 +7,11 @@ test.describe("Navegación", () => {
     await page.goto("/");
 
     const nav = page.getByRole("navigation", { name: "Principal" });
-    await expect(nav.getByRole("link", { name: "Inicio" })).toBeVisible();
-    await expect(nav.getByRole("link", { name: "Comprar" })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "Inicio", exact: true })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "Comprar", exact: true })).toBeVisible();
     await expect(nav.getByRole("link", { name: "Calidad" })).toBeVisible();
 
-    await nav.getByRole("link", { name: "Comprar" }).click();
+    await nav.getByRole("link", { name: "Comprar", exact: true }).click();
     await expect(page).toHaveURL(/\/comprar$/);
 
     await nav.getByRole("link", { name: "Calidad" }).click();
@@ -41,6 +41,38 @@ test.describe("Navegación", () => {
     await expect(page.getByRole("button", { name: "Abrir menú" })).toBeVisible();
   });
 
+  test("en móvil, fuera del home no se marca Inicio como activo", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/comprar");
+
+    await page.getByRole("button", { name: "Abrir menú" }).click();
+    const mobile = page.getByRole("navigation", { name: "Móvil" });
+
+    await expect(mobile.getByRole("link", { name: "Comprar", exact: true })).toHaveClass(
+      /bg-brand-light/
+    );
+    await expect(mobile.getByRole("link", { name: "Inicio", exact: true })).not.toHaveClass(
+      /bg-brand-light/
+    );
+  });
+
+  test("en móvil, Inicio queda activo solo en el home", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/");
+
+    await page.getByRole("button", { name: "Abrir menú" }).click();
+    const mobile = page.getByRole("navigation", { name: "Móvil" });
+
+    await expect(mobile.getByRole("link", { name: "Inicio", exact: true })).toHaveClass(
+      /bg-brand-light/
+    );
+    await expect(mobile.getByRole("link", { name: "Comprar", exact: true })).not.toHaveClass(
+      /bg-brand-light/
+    );
+  });
+
   test("header es transparente arriba y opaco al scrollear", async ({ page }) => {
     await page.goto("/");
 
@@ -65,7 +97,7 @@ test.describe("Navegación", () => {
     await expect(footer.getByText("Impulsa tu rutina").first()).toBeVisible();
 
     await expect(
-      footer.getByRole("link", { name: "Comprar" }).first()
+      footer.getByRole("link", { name: "Comprar", exact: true }).first()
     ).toHaveAttribute("href", "/comprar");
     await expect(
       footer.getByRole("link", { name: "Verificar lote" }).first()
