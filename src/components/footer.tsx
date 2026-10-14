@@ -7,6 +7,7 @@ const nav = [
   { href: "/calidad", label: "Verificar lote" },
   { href: "/ficha-tecnica", label: "Ficha técnica" },
   { href: "/creatina", label: "Aprender" },
+  { href: "/precio-creatina-argentina", label: "Precios" },
   { href: "/nosotros", label: "Nosotros" },
 ];
 

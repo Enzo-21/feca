@@ -98,6 +98,9 @@ function buildLlmsTxt(lots) {
 ## Productos
 ${productLines}
 
+## Precios
+- [Precio de la creatina en Argentina](${url("/precio-creatina-argentina")}): precio por gramo y por servicio de cada presentación, y cómo comparar.
+
 ## Calidad
 - [Verificar un lote](${url("/calidad")}): ingresá el número de lote del envase y accedé a su certificado de análisis.
 - [Ficha técnica](${url("/ficha-tecnica")}): especificaciones completas, origen y almacenamiento.

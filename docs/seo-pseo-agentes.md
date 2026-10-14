@@ -30,6 +30,7 @@ verificables** (pureza por HPLC, CoA por lote, ficha técnica).
 | `/ficha-tecnica` | estática | `src/lib/technical_sheet.ts` |
 | `/creatina` | hub | `src/content/creatina` |
 | `/creatina/<slug>` | pSEO (SSG) | `src/content/creatina` |
+| `/precio-creatina-argentina` | estática (guía) | `src/content/precio-creatina.ts` (tabla derivada de `products`) |
 | `/nosotros`, `/contacto`, `/terminos`, `/privacidad` | estáticas | `src/app/*` |
 | `/robots.txt`, `/sitemap.xml` | generadas | `src/app/robots.ts`, `src/app/sitemap.ts` |
 
@@ -138,5 +139,7 @@ validez de los activos de agentes, y JSON-LD de home, producto, artículo y lote
   garantizada: la indexación real sigue dependiendo del SEO clásico.
 - Rich results de `FAQPage`/`HowTo` están deprecados (2023); se emiten igual
   porque ayudan al parseo por LLM, no por rich result.
-- El backlog editorial (§11 del plan) tiene 16 intenciones; hoy hay 12
-  artículos. Falta autoría experta (E-E-A-T) y comparativas por criterios.
+- El backlog editorial (§11 del plan) tiene 16 ítems: los 12 artículos del hub
+  están escritos y la guía de precio (`/precio-creatina-argentina`, ítem 14)
+  también. Falta autoría/revisión experta (E-E-A-T) y comparativas por
+  criterios.

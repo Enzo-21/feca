@@ -154,6 +154,21 @@ export default function ComprarPage() {
         </div>
       </section>
 
+      <section className="px-3 pb-16 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-2 lg:px-8">
+          <p className="text-sm leading-relaxed text-graphite">
+            ¿Comparando opciones? Mirá{" "}
+            <Link
+              href="/precio-creatina-argentina"
+              className="font-semibold text-brand underline underline-offset-2 hover:text-brand-dark"
+            >
+              cómo se calcula el precio por gramo y por servicio
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
       <section className="px-3 sm:px-6 lg:px-8">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-4 px-4 pb-16 sm:px-2 md:grid-cols-3 lg:px-8">
           {perks.map((perk, i) => (

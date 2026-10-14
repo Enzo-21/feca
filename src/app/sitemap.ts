@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: absoluteUrl("/calidad"), lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: absoluteUrl("/ficha-tecnica"), lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: absoluteUrl("/creatina"), lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: absoluteUrl("/precio-creatina-argentina"), lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: absoluteUrl("/nosotros"), lastModified: now, changeFrequency: "yearly", priority: 0.5 },
     { url: absoluteUrl("/contacto"), lastModified: now, changeFrequency: "yearly", priority: 0.5 },
     { url: absoluteUrl("/terminos"), lastModified: now, changeFrequency: "yearly", priority: 0.3 },

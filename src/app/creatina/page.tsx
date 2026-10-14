@@ -88,6 +88,12 @@ export default function CreatinaHubPage() {
             certificado de análisis por lote.
           </p>
           <CtaButton href="/comprar" label="Ver productos" variant="primary" />
+          <Link
+            href="/precio-creatina-argentina"
+            className="text-xs font-bold uppercase tracking-wider text-brand hover:underline"
+          >
+            Cómo comparar precios por gramo
+          </Link>
         </div>
       </section>
     </>

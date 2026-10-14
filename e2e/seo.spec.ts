@@ -136,6 +136,26 @@ test.describe("SEO — rastreo y datos estructurados", () => {
     expect(types).toContain("BreadcrumbList");
   });
 
+  test("la guía de precio muestra la tabla y su JSON-LD", async ({ page }) => {
+    await page.goto("/precio-creatina-argentina");
+
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(
+      "Precio de la creatina"
+    );
+
+    // La tabla se deriva de la fuente única de productos: debe incluir las tres
+    // presentaciones y su equivalencia por kilo.
+    await expect(
+      page.getByRole("columnheader", { name: "Por kilo" })
+    ).toBeVisible();
+    await expect(page.getByRole("cell", { name: "1 kg" })).toBeVisible();
+
+    const types = typesOf(await getJsonLd(page));
+    expect(types).toContain("Article");
+    expect(types).toContain("FAQPage");
+    expect(types).toContain("BreadcrumbList");
+  });
+
   test("páginas legales responden y son indexables", async ({ page }) => {
     for (const route of ["/nosotros", "/contacto", "/terminos", "/privacidad"]) {
       const res = await page.goto(route);
