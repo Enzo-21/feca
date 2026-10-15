@@ -19,9 +19,15 @@ export function getArticleSlugs(): string[] {
   return articles.map((article) => article.slug);
 }
 
-/** Artículos relacionados resueltos (ignora slugs inexistentes). */
+/**
+ * Artículos relacionados resueltos: ignora slugs inexistentes, descarta la
+ * auto-referencia y evita repetidos.
+ */
 export function getRelated(article: Article): Article[] {
-  return article.related
+  const slugs = [...new Set(article.related)].filter(
+    (slug) => slug !== article.slug
+  );
+  return slugs
     .map((slug) => getArticle(slug))
     .filter((item): item is Article => Boolean(item));
 }

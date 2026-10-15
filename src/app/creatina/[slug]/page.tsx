@@ -170,7 +170,7 @@ export default async function ArticlePage(props: {
                   className="group flex items-center gap-3 rounded-2xl bg-white p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg"
                 >
                   <span className="text-sm font-semibold uppercase tracking-wide text-ink">
-                    {article.metaTitle ?? item.title}
+                    {item.metaTitle ?? item.title}
                   </span>
                   <ArrowLeft
                     className="ml-auto h-4 w-4 rotate-180 text-border transition-colors group-hover:text-brand"
