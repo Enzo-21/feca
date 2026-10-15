@@ -180,7 +180,7 @@ function CertificateCard({
         </span>
         <div className="min-w-0">
           <h3 className="truncate font-display text-lg uppercase leading-tight text-ink">
-            {certificate.title}
+            Lote {certificate.lot} — Certificado de análisis
           </h3>
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             {certificate.product}
