@@ -21,7 +21,7 @@ export const products: Product[] = [
     description:
       "Monohidrato de creatina 100% puro en el formato ideal para empezar. Sin aditivos ni sabores. La puerta de entrada a la línea FECA.",
     image: "/images/producto-creatina-300g.jpg",
-    price: 28000,
+    price: 19000,
     grams: 300,
     size: "300 g",
     servings: 60,
@@ -35,7 +35,7 @@ export const products: Product[] = [
     description:
       "La misma creatina pura en un formato intermedio. Más rendimiento por envase y un precio por gramo más conveniente.",
     image: "/images/producto-creatina-500g.jpg",
-    price: 43500,
+    price: 28000,
     grams: 500,
     size: "500 g",
     servings: 100,
@@ -50,7 +50,7 @@ export const products: Product[] = [
     description:
       "Formato de un kilo pensado para quienes no negocian la constancia. El menor precio por kilogramo de toda la línea.",
     image: "/images/producto-creatina-1kg.jpg",
-    price: 82000,
+    price: 45000,
     grams: 1000,
     size: "1 kg",
     servings: 200,
