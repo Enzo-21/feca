@@ -5,18 +5,30 @@ import SectionHeading from "@/components/section-heading";
 const features = [
   {
     icon: Dumbbell,
-    title: "Crecimiento muscular más rápido",
-    text: "La creatina promueve un crecimiento muscular más rápido, como lo demuestran las propiedades de esta sustancia natural.",
+    title: "Calidad y pureza",
+    text: "Nuestra creatina es pura y favorece el crecimiento muscular, el rendimiento, la fuerza y la resistencia. Controlamos su pureza para que obtenés lo que prometimos.",
+    bullets: [
+      "Pureza verificada",
+      "Materia prima de calidad controlada",
+    ],
   },
   {
     icon: Zap,
-    title: "Más rendimiento",
-    text: "Es esencial para la producción de energía en el cuerpo y es valorada por los atletas desde hace décadas.",
+    title: "Compromiso y calidad",
+    text: "Brindamos certificados de análisis por lote y trazabilidad de nuestras materias primas. No aceptamos atajos: cada lote es verificable.",
+    bullets: [
+      "Certificados de análisis por lote",
+      "Trazabilidad de materias primas",
+    ],
   },
   {
     icon: Waves,
-    title: "Más resistencia",
-    text: "El consumo regular y constante produce una mayor sensación de bienestar y una mejor tolerancia al ejercicio.",
+    title: "Precio justo y competitivo",
+    text: "Ofrecemos un producto puro, sin aditivos ni procesos industriales que inflen el precio. Calidad de primera mano, al precio que corresponde.",
+    bullets: [
+      "Producto puro, sin aditivos",
+      "Sin costos innecesarios",
+    ],
   },
 ];
 
@@ -47,7 +59,7 @@ export default function Features() {
                 </p>
 
                 <ul className="mt-auto flex flex-col gap-2 border-t border-white/20 pt-5">
-                  {["Sin aditivos", "Certificado por lote"].map((item) => (
+                  {feature.bullets.map((item) => (
                     <li
                       key={item}
                       className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[1px] text-white"

@@ -97,7 +97,7 @@ test.describe("Home — secciones", () => {
       page.getByRole("heading", { name: /Los puntos fuertes de FECA/ })
     ).toBeVisible();
 
-    for (const item of ["Sin aditivos", "Certificado por lote"]) {
+    for (const item of ["Pureza verificada", "Trazabilidad de materias primas"]) {
       await expect(page.getByText(item).first()).toBeVisible();
     }
 
