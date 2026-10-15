@@ -25,3 +25,12 @@ Antes de tocar la generación de PDFs o la sección de calidad, leé `docs/`:
   lote (`data/lotes/<LOT>/<LOT>.json` + `<LOT>.pdf`) y generación del
   PDF de marca en el `prebuild` (motor JS puro, **no** Playwright, porque Vercel
   no trae Chromium). Estado: implementado.
+
+## Precios y tests (regla inmutable)
+
+Los precios son **fuente única de verdad** en [`src/lib/products.ts`](src/lib/products.ts). Los tests e2e **NO deben hardcodear precios**.
+
+- Usar [`e2e/support/products.ts`](e2e/support/products.ts) para obtener precios formateados o numéricos en specs. Deriva de `products.ts` y del formateador `src/lib/format.ts` (`formatARS`).
+- Al cambiar cualquier precio (o agregar/quitar un producto), **basta con editar `src/lib/products.ts`**. Los tests que usen el helper se actualizan automáticamente.
+- Cualquier test nuevo que muestre precios debe usar este helper (o calcularlos desde `products.ts`). No escribir valores literales como `$28.000`, `$43.500`, `$82.000`, `43500`, etc.
+- Si hay tests legacy con precios hardcodeados, actualizarlos para que deriven de la fuente única.
