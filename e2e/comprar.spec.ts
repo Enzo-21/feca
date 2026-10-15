@@ -1,4 +1,9 @@
 import { expect, test } from "@playwright/test";
+import {
+  formattedPrices,
+  formattedPriceBySize,
+  formattedSubtotal,
+} from "./support/products";
 
 test.describe("Comprar", () => {
   test("listado con 3 productos, precios y badges", async ({ page }) => {
@@ -11,7 +16,7 @@ test.describe("Comprar", () => {
       page.getByRole("button", { name: "Añadir al carrito" })
     ).toHaveCount(3);
 
-    for (const price of ["$28.000", "$43.500", "$82.000"]) {
+    for (const price of formattedPrices) {
       await expect(page.getByText(price, { exact: true })).toBeVisible();
     }
 
@@ -56,7 +61,9 @@ test.describe("Comprar", () => {
 
     await expect(page.getByRole("dialog")).toBeVisible();
     await expect(page.getByText("Tu pedido")).toBeVisible();
-    await expect(page.getByText("$28.000", { exact: true }).first()).toBeVisible();
+    await expect(
+      page.getByText(formattedPriceBySize("300 g"), { exact: true }).first()
+    ).toBeVisible();
 
     await page.getByRole("button", { name: "Continuar" }).click();
 
@@ -85,13 +92,17 @@ test.describe("Comprar", () => {
       .getByRole("button", { name: "Sumar una unidad de 300 g" })
       .click();
 
-    await expect(page.getByText("$56.000", { exact: true }).first()).toBeVisible();
+    await expect(
+      page.getByText(formattedSubtotal("300 g", 2), { exact: true }).first()
+    ).toBeVisible();
 
     await page
       .getByRole("button", { name: "Restar una unidad de 300 g" })
       .click();
 
-    await expect(page.getByText("$28.000", { exact: true }).first()).toBeVisible();
+    await expect(
+      page.getByText(formattedPriceBySize("300 g"), { exact: true }).first()
+    ).toBeVisible();
   });
 
   test("muestra perks y CTA final a /calidad", async ({ page }) => {

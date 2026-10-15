@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { productBySize } from "./support/products";
 
 /** Devuelve todos los bloques JSON-LD de la página, aplanados. */
 async function getJsonLd(page: Page): Promise<Record<string, unknown>[]> {
@@ -102,7 +103,7 @@ test.describe("SEO — rastreo y datos estructurados", () => {
     expect(product).toBeTruthy();
     const offers = product?.offers as Record<string, unknown>;
     expect(offers.priceCurrency).toBe("ARS");
-    expect(offers.price).toBe(43500);
+    expect(offers.price).toBe(productBySize("500 g").price);
     expect(nodes.some((n) => n["@type"] === "BreadcrumbList")).toBeTruthy();
   });
 

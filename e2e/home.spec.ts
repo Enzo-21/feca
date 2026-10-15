@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { formattedPrices } from "./support/products";
 
 const keywords = ["Fuerza", "Potencia", "Resistencia", "Recuperación"];
 
@@ -112,7 +113,7 @@ test.describe("Home — secciones", () => {
       page.getByRole("heading", { name: /Creatina FECA, sin imperfecciones/ })
     ).toBeVisible();
 
-    for (const price of ["$28.000", "$43.500", "$82.000"]) {
+    for (const price of formattedPrices) {
       await expect(page.getByText(price, { exact: true })).toBeVisible();
     }
 
