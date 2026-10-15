@@ -35,7 +35,7 @@ test.describe("Home — Hero", () => {
     expect(keywords).toContain(first);
 
     const heroImage = page.locator(
-      'img[alt="Packaging de FECA Creatina Monohidrato"]'
+      'img[alt="Persona sacando creatina del sachet para preparar su bebida"]'
     );
     const container = heroImage.locator("..");
 
@@ -49,14 +49,14 @@ test.describe("Home — Hero", () => {
     expect(box2).toEqual(box1);
   });
 
-  test("imagen de packaging con leyenda Impulsa tu rutina", async ({ page }) => {
+  test("imagen del producto con leyenda Impulsa tu rutina", async ({ page }) => {
     await page.goto("/");
 
     const image = page.locator(
-      'img[alt="Packaging de FECA Creatina Monohidrato"]'
+      'img[alt="Persona sacando creatina del sachet para preparar su bebida"]'
     );
     await expect(image).toBeVisible();
-    await expect(image).toHaveAttribute("src", /hero-athletes/);
+    await expect(image).toHaveAttribute("src", /product-action-table/);
 
     const container = image.locator("..");
     await expect(container).toHaveClass(/aspect/);

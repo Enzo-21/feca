@@ -74,8 +74,8 @@ export default function Hero() {
 
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] bg-feather shadow-2xl">
               <Image
-                src="/images/hero-athletes.png"
-                alt="Packaging de FECA Creatina Monohidrato"
+                src="/images/product-action-table.jpeg"
+                alt="Persona sacando creatina del sachet para preparar su bebida"
                 fill
                 priority
                 sizes="(min-width: 1024px) 420px, (min-width: 640px) 60vw, 90vw"

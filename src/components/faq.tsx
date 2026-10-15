@@ -30,8 +30,8 @@ export default function Faq() {
               <div className="relative w-52 overflow-hidden rounded-[2rem] bg-feather shadow-xl">
                 <div className="relative aspect-square">
                   <Image
-                    src="/images/product-action-table.jpeg"
-                    alt="Persona sacando creatina del sachet para preparar su bebida"
+                    src="/images/hero-athletes.png"
+                    alt="Packaging de FECA Creatina Monohidrato"
                     fill
                     sizes="208px"
                     className="object-cover"
