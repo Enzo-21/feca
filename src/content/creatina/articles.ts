@@ -1227,4 +1227,340 @@ export const articles: Article[] = [
     ],
     related: ["beneficios", "cuanta-tomar", "efectos-secundarios"],
   },
+  {
+    slug: "desarrollo-muscular",
+    title: "Creatina y desarrollo muscular",
+    metaTitle: "Creatina para el desarrollo muscular",
+    description:
+      "Qué dice la evidencia sobre la creatina y el desarrollo muscular: cómo acompaña al entrenamiento de fuerza, qué esperar y qué no promete.",
+    intro:
+      "La creatina no construye músculo por sí sola: acompaña al entrenamiento de fuerza, que es el estímulo que impulsa el desarrollo muscular. Según la evidencia, ayuda a rendir más en esfuerzos cortos e intensos, y con constancia ese mayor rendimiento puede traducirse en más fuerza y más masa muscular.",
+    updated: "2026-10-16",
+    readingMinutes: 5,
+    intent: "desarrollo muscular e hipertrofia",
+    blocks: [
+      {
+        type: "p",
+        text: "El desarrollo muscular depende sobre todo del entrenamiento de fuerza, de una alimentación con suficiente proteína y de un buen descanso. La creatina no reemplaza nada de eso: actúa sobre la energía disponible para entrenar más y mejor.",
+      },
+      { type: "h2", text: "Cómo acompaña al desarrollo muscular" },
+      {
+        type: "p",
+        text: "La creatina se almacena en el músculo como fosfocreatina y ayuda a regenerar energía en esfuerzos cortos e intensos. Al saturar esos depósitos, tenés más disponibilidad para completar series exigentes, lo que a su vez genera un estímulo mayor para el músculo.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Permite sostener más volumen o intensidad en el entrenamiento de fuerza.",
+          "Ayuda a rendir en los primeros segundos de esfuerzos explosivos.",
+          "Su efecto se expresa mejor con un plan de fuerza y una dieta adecuada.",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "No hace el trabajo por vos",
+        text: "La creatina no genera músculo en reposo ni sin entrenamiento. Los resultados mejor respaldados aparecen cuando acompaña a un trabajo de fuerza constante.",
+      },
+      { type: "h2", text: "Qué dice la evidencia" },
+      {
+        type: "p",
+        text: "La creatina es uno de los suplementos más estudiados del mundo. La evidencia respalda mejoras en fuerza y potencia y en el rendimiento en esfuerzos cortos e intensos. Ese mayor estímulo, sostenido en el tiempo, es lo que se asocia con el desarrollo de masa muscular. No es un medicamento ni un esteroide.",
+      },
+      {
+        type: "table",
+        caption: "Aspectos a tener en cuenta",
+        head: ["Aspecto", "Consideración"],
+        rows: [
+          ["Dosis", "3 a 5 g diarios, todos los días"],
+          ["Lo más importante", "Entrenamiento de fuerza constante"],
+          ["Junto con", "Proteína y energía suficientes"],
+          ["Forma recomendada", "Monohidrato, la más estudiada"],
+        ],
+      },
+      { type: "h2", text: "Qué esperar" },
+      {
+        type: "p",
+        text: "Las mejoras de fuerza suelen aparecer en semanas de entrenamiento constante; los cambios visibles de masa muscular toman más tiempo y dependen de cada persona. En FECA la creatina es monohidrato de 200 mesh con pureza de referencia ≥ 99,5 %, con certificado por lote.",
+      },
+      {
+        type: "p",
+        text: "Si tenés una condición médica o tomás medicación, consultá a un profesional antes de sumarla a tu rutina.",
+      },
+    ],
+    faqs: [
+      {
+        question: "¿La creatina hace crecer el músculo sola?",
+        answer:
+          "No. El estímulo para el desarrollo muscular es el entrenamiento de fuerza. La creatina ayuda a rendir mejor, pero no genera músculo por sí sola.",
+      },
+      {
+        question: "¿Cuánto tarda en notarse?",
+        answer:
+          "La fuerza suele mejorar en semanas de entrenamiento constante. Los cambios visibles de masa muscular toman más tiempo y varían según la persona.",
+      },
+      {
+        question: "¿Sirve para aumentar masa muscular sin entrenar?",
+        answer:
+          "No. Sin entrenamiento, el efecto sobre fuerza y masa muscular pierde sentido. La creatina acompaña a la rutina, no la reemplaza.",
+      },
+      {
+        question: "¿La creatina es un esteroide?",
+        answer:
+          "No. Participa del metabolismo energético del músculo y no tiene relación con los esteroides anabólicos.",
+      },
+    ],
+    related: ["beneficios", "creatina-vs-proteina", "creatina-adultos-mayores"],
+  },
+  {
+    slug: "fuerza-y-potencia",
+    title: "Creatina para fuerza y potencia",
+    metaTitle: "Creatina, fuerza y potencia",
+    description:
+      "Cómo la creatina ayuda a la fuerza y la potencia según la evidencia: el mecanismo, la dosis y qué esperar en esfuerzos cortos e intensos.",
+    intro:
+      "La fuerza y la potencia son dos de los efectos mejor respaldados de la creatina. Al saturar la fosfocreatina del músculo, mejora la energía disponible para esfuerzos cortos e intensos, como una serie pesada o un sprint. La dosis de mantenimiento es de 3 a 5 g diarios.",
+    updated: "2026-10-16",
+    readingMinutes: 5,
+    intent: "fuerza, potencia y esfuerzos intensos",
+    blocks: [
+      {
+        type: "p",
+        text: "Fuerza y potencia se apoyan en la energía que tu músculo puede liberar muy rápido. La creatina, en forma de fosfocreatina, participa justo en esa vía: regenerar energía para los primeros segundos de un esfuerzo máximo.",
+      },
+      { type: "h2", text: "Qué significan fuerza y potencia" },
+      {
+        type: "ul",
+        items: [
+          "Fuerza: la capacidad de mover una carga, como una serie pesada.",
+          "Potencia: la capacidad de aplicar esa fuerza rápido, como un salto o un sprint.",
+          "Ambas dependen de esfuerzos breves, intensos y de alta demanda energética.",
+        ],
+      },
+      { type: "h2", text: "Cómo ayuda la creatina" },
+      {
+        type: "p",
+        text: "Los depósitos musculares de creatina suelen estar parcialmente llenos. Al suplementar se saturan, y el músculo tiene más disponibilidad de fosfocreatina para los esfuerzos cortos e intensos. Por eso la evidencia respalda mejoras en fuerza y potencia.",
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "Sin promesas garantizadas",
+        text: "La respuesta varía según la persona, el entrenamiento y la alimentación. La creatina ayuda a rendir mejor, pero no garantiza un resultado ni reemplaza el trabajo.",
+      },
+      {
+        type: "table",
+        caption: "Aspectos a tener en cuenta",
+        head: ["Aspecto", "Consideración"],
+        rows: [
+          ["Dosis", "3 a 5 g diarios"],
+          ["Momento del día", "No es determinante; importa la constancia"],
+          ["Forma recomendada", "Monohidrato, la más estudiada"],
+          ["Con entrenamiento de fuerza", "Donde mejor se expresa"],
+        ],
+      },
+      { type: "h2", text: "Qué esperar" },
+      {
+        type: "p",
+        text: "Las mejoras en esfuerzos cortos e intensos suelen notarse con días o semanas de uso constante. En FECA la creatina es monohidrato de 200 mesh con pureza de referencia ≥ 99,5 %, con certificado por lote.",
+      },
+      {
+        type: "p",
+        text: "Si tenés una condición médica o tomás medicación, consultá a un profesional antes de sumarla a tu rutina.",
+      },
+    ],
+    faqs: [
+      {
+        question: "¿La creatina sirve para la fuerza y la potencia?",
+        answer:
+          "Sí. Son dos de sus efectos mejor respaldados por la evidencia, sobre todo en esfuerzos cortos e intensos.",
+      },
+      {
+        question: "¿Cuándo noto el efecto?",
+        answer:
+          "Con la dosis de mantenimiento, los depósitos suelen saturarse en unas semanas. Una fase de carga llega al mismo punto más rápido.",
+      },
+      {
+        question: "¿Importa cuándo la tomo?",
+        answer:
+          "No de forma decisiva. El efecto depende de mantener los depósitos saturados, así que lo importante es la constancia diaria.",
+      },
+      {
+        question: "¿Sirve si no entreno?",
+        answer:
+          "Sus beneficios principales son sobre el rendimiento físico. Sin entrenamiento, el efecto sobre fuerza y potencia pierde sentido.",
+      },
+    ],
+    related: ["beneficios", "que-es", "cuanta-tomar"],
+  },
+  {
+    slug: "resistencia",
+    title: "Creatina para resistencia",
+    metaTitle: "Creatina y resistencia",
+    description:
+      "Qué dice la evidencia sobre la creatina y el rendimiento en resistencia: dónde ayuda, dónde no, y por qué puede sumar a tu entrenamiento.",
+    intro:
+      "La creatina es conocida por su efecto en esfuerzos cortos e intensos, pero también puede sumar en deportes de resistencia. Su rol en la producción de energía aporta en los tramos más exigentes y en la repetición de esfuerzos. La dosis es la misma: 3 a 5 g diarios.",
+    updated: "2026-10-16",
+    readingMinutes: 5,
+    intent: "rendimiento en deportes de resistencia",
+    blocks: [
+      {
+        type: "p",
+        text: "El rendimiento en resistencia depende de muchos factores: entrenamiento aeróbico, alimentación, descanso y estrategia de la sesión o la carrera. La creatina no es un sustituto de eso, pero tiene un papel en la producción de energía que puede sumar.",
+      },
+      { type: "h2", text: "Dónde puede ayudar" },
+      {
+        type: "p",
+        text: "Aunque su efecto mejor respaldado está en esfuerzos cortos e intensos, la creatina interviene en el metabolismo energético del músculo. En deportes de resistencia puede aportar en los tramos de mayor intensidad, en los cambios de ritmo y en la repetición de esfuerzos.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Aporta en los picos de intensidad dentro de un esfuerzo largo.",
+          "Puede ayudar en deportes con esfuerzos repetidos o intermitentes.",
+          "Ayuda a sostener la calidad del entrenamiento cuando aparece la fatiga.",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "Sin exagerar",
+        text: "La evidencia en resistencia es más moderada que en fuerza y potencia. La creatina suma; la base sigue siendo el entrenamiento aeróbico y una buena alimentación.",
+      },
+      { type: "h2", text: "Cómo se toma" },
+      {
+        type: "p",
+        text: "La dosis de mantenimiento es de 3 a 5 g diarios, todos los días, entrenes o no. No hace falta tomarla justo antes de la sesión: lo que importa es mantener los depósitos saturados.",
+      },
+      {
+        type: "table",
+        caption: "Aspectos a tener en cuenta",
+        head: ["Aspecto", "Consideración"],
+        rows: [
+          ["Dosis", "3 a 5 g diarios"],
+          ["Constancia", "Más importante que el momento"],
+          ["Hidratación", "Conviene mantener una buena ingesta de agua"],
+          ["Forma recomendada", "Monohidrato, la más estudiada"],
+        ],
+      },
+      { type: "h2", text: "Qué esperar" },
+      {
+        type: "p",
+        text: "Puede notarse como una mejor capacidad para sostener esfuerzos intensos o repetidos dentro de tu disciplina. En FECA la creatina es monohidrato de 200 mesh con pureza de referencia ≥ 99,5 %, con certificado por lote.",
+      },
+      {
+        type: "p",
+        text: "Si tenés una condición médica o tomás medicación, consultá a un profesional antes de sumarla a tu rutina.",
+      },
+    ],
+    faqs: [
+      {
+        question: "¿La creatina sirve para la resistencia?",
+        answer:
+          "Puede sumar, sobre todo en los tramos de mayor intensidad y en esfuerzos repetidos. La evidencia es más moderada que en fuerza y potencia.",
+      },
+      {
+        question: "¿Reemplaza al entrenamiento aeróbico?",
+        answer:
+          "No. La base de la resistencia es el entrenamiento y la alimentación. La creatina es un complemento, no un atajo.",
+      },
+      {
+        question: "¿Hay que tomarla antes de correr?",
+        answer:
+          "No es necesario. El efecto depende de mantener los depósitos saturados, así que importa tomarla todos los días.",
+      },
+      {
+        question: "¿Necesito tomar más agua?",
+        answer:
+          "La creatina atrae agua hacia el músculo. Conviene mantener una buena hidratación general, sin excesos.",
+      },
+    ],
+    related: ["beneficios", "como-tomar", "tomar-todos-los-dias"],
+  },
+  {
+    slug: "recuperacion",
+    title: "Creatina y recuperación",
+    metaTitle: "Creatina para la recuperación",
+    description:
+      "Cómo la creatina puede apoyar la recuperación tras entrenamientos exigentes: qué dice la evidencia, cómo se toma y qué esperar.",
+    intro:
+      "La recuperación es uno de los efectos que la evidencia asocia a la creatina. Al reponer más rápido las reservas de energía del músculo, puede apoyar la recuperación entre sesiones intensas. La dosis de mantenimiento es de 3 a 5 g diarios.",
+    updated: "2026-10-16",
+    readingMinutes: 5,
+    intent: "recuperación entre sesiones",
+    blocks: [
+      {
+        type: "p",
+        text: "Recuperarse bien significa volver a estar listo para la próxima sesión. Depende del descanso, la alimentación, la hidratación y el manejo de la carga. La creatina puede sumar en un aspecto concreto: la energía del músculo.",
+      },
+      { type: "h2", text: "Cómo puede ayudar" },
+      {
+        type: "p",
+        text: "Al saturar la fosfocreatina del músculo, la creatina ayuda a regenerar energía en esfuerzos cortos e intensos. Eso puede traducirse en una mejor recuperación entre series, entre sesiones exigentes o en deportes con esfuerzos repetidos.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Puede apoyar la recuperación entre series intensas.",
+          "Ayuda a sostener la calidad del entrenamiento cuando acumulás fatiga.",
+          "Suma cuando acompaña a un buen descanso y una alimentación adecuada.",
+        ],
+      },
+      {
+        type: "callout",
+        tone: "info",
+        title: "La base es el descanso",
+        text: "La creatina acompaña la recuperación, no la reemplaza. Dormir bien, comer suficiente y dosificar la carga siguen siendo lo más importante.",
+      },
+      { type: "h2", text: "Cómo se toma" },
+      {
+        type: "p",
+        text: "3 a 5 g diarios, todos los días, entrenes o no. La constancia es lo que mantiene los depósitos saturados y el efecto disponible cuando lo necesitás.",
+      },
+      {
+        type: "table",
+        caption: "Aspectos a tener en cuenta",
+        head: ["Aspecto", "Consideración"],
+        rows: [
+          ["Dosis", "3 a 5 g diarios"],
+          ["Frecuencia", "Todos los días"],
+          ["Junto con", "Descanso y alimentación"],
+          ["Forma recomendada", "Monohidrato, la más estudiada"],
+        ],
+      },
+      { type: "h2", text: "Qué esperar" },
+      {
+        type: "p",
+        text: "Puede notarse como una mejor sensación entre sesiones o una menor caída de rendimiento cuando acumulás esfuerzos. En FECA la creatina es monohidrato de 200 mesh con pureza de referencia ≥ 99,5 %, con certificado por lote.",
+      },
+      {
+        type: "p",
+        text: "Si tenés una condición médica o tomás medicación, consultá a un profesional antes de sumarla a tu rutina.",
+      },
+    ],
+    faqs: [
+      {
+        question: "¿La creatina ayuda a recuperarse?",
+        answer:
+          "Puede apoyar la recuperación tras esfuerzos intensos al reponer más rápido las reservas de energía del músculo. No reemplaza el descanso.",
+      },
+      {
+        question: "¿Sirve para las agujetas?",
+        answer:
+          "No hay evidencia sólida de que elimine las agujetas. Su aporte está en la energía del músculo y la recuperación entre esfuerzos.",
+      },
+      {
+        question: "¿Hay que tomarla después de entrenar?",
+        answer:
+          "No es necesario. Lo importante es tomarla todos los días para mantener los depósitos saturados.",
+      },
+      {
+        question: "¿Puedo tomarla los días que descanso?",
+        answer:
+          "Sí. De hecho, conviene tomarla todos los días, entrenes o no.",
+      },
+    ],
+    related: ["beneficios", "tomar-todos-los-dias", "como-tomar"],
+  },
 ];

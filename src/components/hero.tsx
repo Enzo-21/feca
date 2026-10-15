@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div
-        className="pointer-events-none absolute -top-40 -right-32 h-[34rem] w-[34rem] rounded-full bg-brand/15 blur-3xl"
+        className="pointer-events-none absolute -bottom-40 -right-32 h-[34rem] w-[34rem] rounded-full bg-brand/15 blur-3xl lg:-top-40 lg:bottom-auto"
         aria-hidden="true"
       />
       <div
