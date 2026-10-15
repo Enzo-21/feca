@@ -127,17 +127,17 @@ export default async function LotPage(props: {
               </span>
             </div>
 
-            <div className="hidden items-center justify-between border-b border-border px-6 py-3 text-xs font-bold uppercase tracking-[2px] text-muted-foreground sm:flex">
+            <div className="hidden items-center border-b border-border px-6 py-3 text-xs font-bold uppercase tracking-[2px] text-muted-foreground sm:grid sm:grid-cols-[1.5fr_1.15fr_0.85fr] sm:gap-4">
               <span>Parámetro</span>
               <span>Especificación</span>
-              <span>Resultado</span>
+              <span className="sm:text-right">Resultado</span>
             </div>
 
             <ul className="divide-y divide-border">
               {certificate.tests.map((test) => (
                 <li
                   key={test.name}
-                  className="flex flex-col gap-1 px-6 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                  className="flex flex-col gap-1 px-6 py-3.5 sm:grid sm:grid-cols-[1.5fr_1.15fr_0.85fr] sm:items-center sm:gap-4"
                 >
                   <span className="flex min-w-0 flex-col">
                     <span className="text-sm text-ink">{test.name}</span>
@@ -147,11 +147,14 @@ export default async function LotPage(props: {
                       </span>
                     ) : null}
                   </span>
-                  <span className="flex items-center justify-between gap-4 sm:justify-end">
+                  {/* En móvil la especificación y el resultado comparten fila;
+                      desde sm se despliegan como celdas propias para alinear
+                      con los encabezados. */}
+                  <span className="flex items-center justify-between gap-4 sm:contents">
                     <span className="text-xs text-muted-foreground">
                       {test.spec}
                     </span>
-                    <span className="font-display text-sm text-brand">
+                    <span className="font-display text-sm text-brand sm:text-right">
                       {test.result}
                     </span>
                   </span>
