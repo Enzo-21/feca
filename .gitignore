@@ -53,3 +53,6 @@ next-env.d.ts
 /public/lotes/
 /public/llms.txt
 /public/llms-full.txt
+
+# Claude Code en la nube: resultados que vuelven en la rama cloud/<slug> (scripts/cloud/, AGENTS.md)
+.cloud-artifacts/

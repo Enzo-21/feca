@@ -1,0 +1,8 @@
+{
+  "git": {
+    "deploymentEnabled": {
+      "cloud/**": false,
+      "claude/**": false
+    }
+  }
+}

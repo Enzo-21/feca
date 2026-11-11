@@ -34,3 +34,36 @@ Los precios son **fuente única de verdad** en [`src/lib/products.ts`](src/lib/p
 - Al cambiar cualquier precio (o agregar/quitar un producto), **basta con editar `src/lib/products.ts`**. Los tests que usen el helper se actualizan automáticamente.
 - Cualquier test nuevo que muestre precios debe usar este helper (o calcularlos desde `products.ts`). No escribir valores literales como `$28.000`, `$43.500`, `$82.000`, `43500`, etc.
 - Si hay tests legacy con precios hardcodeados, actualizarlos para que deriven de la fuente única.
+
+## Trabajos pesados: uno por vez y en la nube cuando la Mac está cargada (IMPORTANTE)
+
+La Mac (M2, 8 GB de RAM) la comparten el dueño y muchos agentes; renders y builds en paralelo ya la dejaron sin
+memoria. Mismo esquema que vexor y mercadosuite (plan `docs/plans/033-trabajos-pesados-en-la-nube.md` de vexor);
+scripts en `scripts/cloud/`.
+
+- **Un solo trabajo pesado por vez en TODA la Mac** (todas las sesiones y usuarios). Pesados en este repo:
+  `npm run build`, `npx tsc --noEmit`, `npm run test:e2e` (hace su propio build), `npm run dev` / `npm start`,
+  `remotion render|still|bundle|studio` y los pasos de `marketing/video/make.sh` que los usan (`render`, `preview`,
+  `all`), y lanzar subagentes en paralelo. Siguen siendo locales: `npm run lint`, `npm run documentos`, `npm run seo`,
+  `./make.sh audio` y git.
+- **Antes de cada trabajo pesado: `scripts/cloud/heavy-check.sh`.** Exit 0 → se corre local. Exit 10 (carga ≥ 6 u otro
+  trabajo pesado corriendo) → a la nube, sin esperar a que baje la carga, y se sigue trabajando mientras corre.
+- **Acá el build sí puede ir a la nube:** el proyecto no usa variables de entorno (Vercel no tiene ninguna), así que
+  `npm ci && npm run build` en la VM es el mismo build que hace Vercel. Los e2e en la nube necesitan el Chromium de
+  Playwright (`npx playwright install chromium`), que la red «Limited» del entorno puede bloquear: todavía sin probar.
+- **Flujo en la nube:**
+  1. Lo que no está trackeado no llega a la nube: commitearlo o `git add`earlo.
+  2. `scripts/cloud/start.sh <slug> "<comandos>" "<archivos a traer>"` en un panel de Herdr (`claude --cloud` es
+     interactivo), o pedirle al dueño que lo corra con `!`.
+  3. `scripts/cloud/apply-result.sh cloud/<slug> --wait` en segundo plano: aplica los cambios de código sin commitear,
+     escribe los archivos generados en su ruta y borra la rama.
+  4. Revisar lo aplicado como un cambio propio y commitear/pushear.
+- **Pushear `main` es desplegar a producción.** Por eso lo que todavía no está en `main` va a la nube como bundle
+  (`start.sh` lo hace solo si hay cambios sin pushear): sin `origin`, la sesión tiene que adjuntar el repo
+  `Enzo-21/feca` y el dueño aprobarlo en la pantalla de la sesión (un agente no puede aprobarlo). Para verificar un
+  cambio antes de producción sin la nube: pushearlo a una rama aparte y esperar el deploy de preview de Vercel.
+- **`cloud/<slug>` es la única rama que pushea la nube**: nunca `main` ni otras ramas, no abre PRs ni mergea, y el
+  checkout local nunca se cambia a esa rama. Vercel no construye `cloud/**` ni `claude/**` (`vercel.json`).
+- **Nada de secretos en la nube**: ni `.env`, ni Vercel, WhatsApp, ElevenLabs, mails u otros servicios.
+- **Un trabajo en la nube por vez en este repo** (cuenta contra los límites de uso del plan).
+- Renders del video: «Render en la nube» en `marketing/video/README.md`.

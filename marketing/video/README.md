@@ -16,6 +16,23 @@ de los promos de vexor y mercadosuite (`~/Documents/vexor/marketing/video`): mis
 `remotion.config.ts` hace que Remotion use el Chrome instalado: el Chrome headless que trae Remotion se cae en esta
 Mac. Dentro del sandbox de Claude Code, `preview` y `render` pueden colgarse: en ese caso, correrlos desde una terminal.
 
+## Render en la nube
+
+Los renders son el trabajo más pesado de la Mac. Si `scripts/cloud/heavy-check.sh` sale con 10 (carga ≥ 6 u otro
+trabajo pesado corriendo), el render va a una sesión de Claude Code en la nube (regla en `AGENTS.md`, «Trabajos
+pesados»). Desde la raíz del repo, con todo commiteado o con `git add` (los archivos sin trackear no llegan a la nube).
+Las frases de la voz (`audio/voice/lines/*.mp3`) están commiteadas: la nube genera `public/audio.wav` a partir de ellas.
+
+```bash
+scripts/cloud/start.sh promo-render "cd marketing/video && npm ci && ./make.sh" "marketing/video/out/feca-promo-vertical.mp4"
+scripts/cloud/apply-result.sh cloud/promo-render --wait   # en segundo plano; trae el MP4 a out/ y borra la rama
+```
+
+`start.sh` es interactivo (abre `claude --cloud`): se corre en un panel de Herdr o lo corre el dueño con `!`. En la nube
+`remotion.config.ts` usa el Chrome de la VM (`CHROME_PATH`) y `make.sh` baja la concurrencia a los núcleos de la VM.
+Después copiar el MP4 y su texto a `~/Desktop/feca-redes/videos/` (en la nube no existe esa carpeta: `make.sh render`
+falla en ese último paso, el MP4 ya quedó en `out/`).
+
 ## Estructura
 
 | Archivo | Qué tiene |
