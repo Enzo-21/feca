@@ -40,4 +40,10 @@ back=${back:-nothing besides code changes}
 task=${task//\{\{COMMANDS\}\}/"$cmds"}
 task=${task//\{\{BRING_BACK\}\}/"$back"}
 echo "Cloud task cloud/$slug from $branch@${head:0:9} ($how):"; echo "----"; echo "$task"; echo "----"
+# origin uses an SSH host alias (git@github.com-Enzo-21:…) that `claude --cloud` doesn't recognize as GitHub, so it
+# uploads a bundle. Show it the https URL, only for this process (the owner's git config and SSH setup stay as they are).
+origin=$(git remote get-url origin)
+if [[ $origin != https://github.com/* ]]; then
+  export GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0="url.https://github.com/$repo.git.insteadOf" GIT_CONFIG_VALUE_0="$origin"
+fi
 exec claude --cloud "$task"

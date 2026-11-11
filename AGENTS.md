@@ -53,11 +53,17 @@ scripts en `scripts/cloud/`.
   Playwright (`npx playwright install chromium`), que la red «Limited» del entorno puede bloquear: todavía sin probar.
 - **Flujo en la nube:**
   1. Lo que no está trackeado no llega a la nube: commitearlo o `git add`earlo.
-  2. `scripts/cloud/start.sh <slug> "<comandos>" "<archivos a traer>"` en un panel de Herdr (`claude --cloud` es
-     interactivo), o pedirle al dueño que lo corra con `!`.
+  2. `scripts/cloud/start.sh <slug> "<comandos>" "<archivos a traer>"`. `claude --cloud` exige una terminal: desde un
+     agente, con una pseudo-terminal y en segundo plano:
+     `(sleep 7200 | script -q <log> scripts/cloud/start.sh <slug> "<comandos>" "<archivos>" >/dev/null 2>&1 &)`;
+     la URL de la sesión (`https://claude.ai/code/session_…`) queda en `<log>`.
   3. `scripts/cloud/apply-result.sh cloud/<slug> --wait` en segundo plano: aplica los cambios de código sin commitear,
      escribe los archivos generados en su ruta y borra la rama.
   4. Revisar lo aplicado como un cambio propio y commitear/pushear.
+- **Claude GitHub App instalada sólo en `Enzo-21/feca`** (dueño, 2026-11-11). El primer build en la nube
+  (`npm ci && npm run build`) pasó en Node 22: la red de la VM no deja bajar Node 24. El remote usa un alias SSH
+  (`git@github.com-Enzo-21:…`) y `claude --cloud` no lo reconocía como GitHub, así que subía un bundle aunque todo
+  estuviera pusheado: `start.sh` le muestra la URL https sólo a ese proceso.
 - **Pushear `main` es desplegar a producción.** Por eso lo que todavía no está en `main` va a la nube como bundle
   (`start.sh` lo hace solo si hay cambios sin pushear): sin `origin`, la sesión tiene que adjuntar el repo
   `Enzo-21/feca` y el dueño aprobarlo en la pantalla de la sesión (un agente no puede aprobarlo). Para verificar un
