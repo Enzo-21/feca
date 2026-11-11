@@ -49,8 +49,9 @@ scripts en `scripts/cloud/`.
 - **Antes de cada trabajo pesado: `scripts/cloud/heavy-check.sh`.** Exit 0 → se corre local. Exit 10 (carga ≥ 6 u otro
   trabajo pesado corriendo) → a la nube, sin esperar a que baje la carga, y se sigue trabajando mientras corre.
 - **Acá el build sí puede ir a la nube:** el proyecto no usa variables de entorno (Vercel no tiene ninguna), así que
-  `npm ci && npm run build` en la VM es el mismo build que hace Vercel. Los e2e en la nube necesitan el Chromium de
-  Playwright (`npx playwright install chromium`), que la red «Limited» del entorno puede bloquear: todavía sin probar.
+  `npm ci && npm run build` en la VM es el mismo build que hace Vercel. Los e2e también corren en la nube (la VM ya
+  trae los navegadores de Playwright en `/opt/pw-browsers`): `npm ci && npx playwright install chromium && npm run
+  test:e2e` (54 specs en ~22 s, 2026-11-11).
 - **Flujo en la nube:**
   1. Lo que no está trackeado no llega a la nube: commitearlo o `git add`earlo.
   2. `scripts/cloud/start.sh <slug> "<comandos>" "<archivos a traer>"`. `claude --cloud` exige una terminal: desde un

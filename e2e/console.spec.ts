@@ -45,6 +45,10 @@ test.describe("Estabilidad global", () => {
     await expect(
       page.locator('img[alt="Packaging de FECA Creatina Monohidrato"]')
     ).toBeVisible();
-    await expect(page.locator('img[alt="Pouch de FECA Creatina"]')).toBeAttached();
+    await expect(
+      page.locator(
+        'img[alt="Persona sacando creatina del sachet para preparar su bebida"]'
+      )
+    ).toBeAttached();
   });
 });
