@@ -25,7 +25,7 @@ const LOTES_DIR = join(ROOT, "data/lotes");
 const PUBLIC_DIR = join(ROOT, "public");
 const LOTES_OUT_DIR = join(PUBLIC_DIR, "lotes");
 
-const SITE_URL = (process.env.SITE_URL ?? "https://feca.com.ar").replace(/\/$/, "");
+const SITE_URL = (process.env.SITE_URL ?? "https://www.creatinafeca.com.ar").replace(/\/$/, "");
 const SITE_NAME = "FECA";
 const WHATSAPP = "+5493516195674";
 

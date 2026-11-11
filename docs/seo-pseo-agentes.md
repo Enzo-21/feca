@@ -42,7 +42,7 @@ contra un allowlist y devuelve `notFound()` si no existe.
 
 Todo el posicionamiento lee de los mismos datos que el resto del sitio:
 
-- `src/lib/site.ts` — `SITE_URL` (env `SITE_URL`, fallback `https://feca.com.ar`), `SITE_NAME`.
+- `src/lib/site.ts` — `SITE_URL` (env `SITE_URL`, fallback `https://www.creatinafeca.com.ar`), `SITE_NAME`.
 - `src/lib/products.ts` — productos (precio, tamaño, servicios, imagen).
 - `src/lib/certificates.ts` + `certificates.generated.ts` — lotes y análisis.
 - `src/lib/technical_sheet.ts` — especificaciones de la ficha técnica.

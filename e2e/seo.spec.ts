@@ -23,7 +23,7 @@ test.describe("SEO — rastreo y datos estructurados", () => {
     const res = await request.get("/robots.txt");
     expect(res.status()).toBe(200);
     const body = await res.text();
-    expect(body).toContain("Sitemap: https://feca.com.ar/sitemap.xml");
+    expect(body).toContain("Sitemap: https://www.creatinafeca.com.ar/sitemap.xml");
     expect(body).toContain("User-Agent: GPTBot");
     expect(body).toContain("Allow: /");
   });
@@ -33,10 +33,10 @@ test.describe("SEO — rastreo y datos estructurados", () => {
     expect(res.status()).toBe(200);
     const xml = await res.text();
     for (const path of [
-      "https://feca.com.ar/productos/creatina-monohidrato-300g",
-      "https://feca.com.ar/creatina/que-es",
-      "https://feca.com.ar/calidad/202604-013",
-      "https://feca.com.ar/nosotros",
+      "https://www.creatinafeca.com.ar/productos/creatina-monohidrato-300g",
+      "https://www.creatinafeca.com.ar/creatina/que-es",
+      "https://www.creatinafeca.com.ar/calidad/202604-013",
+      "https://www.creatinafeca.com.ar/nosotros",
     ]) {
       expect(xml, `sitemap debería incluir ${path}`).toContain(path);
     }
