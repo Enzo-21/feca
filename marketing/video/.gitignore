@@ -1,0 +1,7 @@
+node_modules/
+out/
+build/
+__pycache__/
+# generados por make.sh
+public/audio.wav
+audio/voice/lines/*.wav

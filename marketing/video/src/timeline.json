@@ -1,0 +1,13 @@
+{
+  "fps": 30,
+  "scenes": [
+    ["hook", 105],
+    ["product", 180],
+    ["purity", 165],
+    ["lot", 180],
+    ["howto", 135],
+    ["training", 135],
+    ["range", 135],
+    ["outro", 165]
+  ]
+}
