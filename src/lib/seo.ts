@@ -6,9 +6,22 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export { SITE_NAME, SITE_URL };
 
-export const OG_IMAGE = "/icons/og.png";
-export const OG_IMAGE_TWITTER = "/icons/og-twitter.png";
-export const OG_IMAGE_ALT = "FECA — Impulsa tu rutina";
+// Generadas con `npm run og` (scripts/generate-og.mjs). Si cambia el diseño,
+// subir la versión del archivo para que las redes no sirvan la copia en caché.
+export const OG_IMAGE = "/icons/og-v2.jpg";
+export const OG_IMAGE_TWITTER = "/icons/og-twitter-v2.jpg";
+export const OG_IMAGE_ALT = "FECA — Creatina monohidrato pura, certificada lote a lote";
+
+/** Imagen social por defecto, lista para `openGraph.images`. */
+export const ogImages = [
+  {
+    url: OG_IMAGE,
+    width: 1200,
+    height: 630,
+    type: "image/jpeg",
+    alt: OG_IMAGE_ALT,
+  },
+];
 
 /** Datos de la entidad (organization) usados en JSON-LD y metadatos. */
 export const organization = {

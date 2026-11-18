@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { OG_IMAGE, OG_IMAGE_TWITTER } from "../src/lib/seo";
 
 test.describe("Metadatos e íconos", () => {
   test("head expone theme-color, iconos y manifest", async ({ page }) => {
@@ -28,7 +29,7 @@ test.describe("Metadatos e íconos", () => {
     await page.goto("/");
 
     const og = page.locator('meta[property="og:image"]').first();
-    await expect(og).toHaveAttribute("content", /https:\/\/.*\/icons\/og\.png/);
+    await expect(og).toHaveAttribute("content", /https:\/\/.*\/icons\/og-v\d+\.jpg/);
 
     const ogWidth = page.locator('meta[property="og:image:width"]').first();
     await expect(ogWidth).toHaveAttribute("content", "1200");
@@ -36,7 +37,7 @@ test.describe("Metadatos e íconos", () => {
     const twitterImage = page.locator('meta[name="twitter:image"]');
     await expect(twitterImage).toHaveAttribute(
       "content",
-      /https:\/\/.*\/icons\/og-twitter\.png/
+      /https:\/\/.*\/icons\/og-twitter-v\d+\.jpg/
     );
   });
 
@@ -46,8 +47,8 @@ test.describe("Metadatos e íconos", () => {
       "/icons/apple-touch-icon.png",
       "/icons/icon-192.png",
       "/icons/icon-512.png",
-      "/icons/og.png",
-      "/icons/og-twitter.png",
+      OG_IMAGE,
+      OG_IMAGE_TWITTER,
       "/manifest.webmanifest",
     ];
 

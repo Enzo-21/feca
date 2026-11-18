@@ -21,6 +21,7 @@ import {
   articlePath,
 } from "@/content/creatina";
 import { articleSchema, faqSchema, breadcrumbSchema } from "@/lib/structured-data";
+import { ogImages } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -40,8 +41,10 @@ export async function generateMetadata(props: {
     alternates: { canonical: articlePath(article.slug) },
     openGraph: {
       type: "article",
+      url: articlePath(article.slug),
       title: article.metaTitle ?? article.title,
       description: article.description,
+      images: ogImages,
     },
   };
 }

@@ -13,6 +13,7 @@
     "documentos": "node scripts/generate-documentos.mjs",
     "documentos:check": "node scripts/generate-documentos.mjs --check",
     "seo": "node scripts/generate-seo-assets.mjs",
+    "og": "node scripts/generate-og.mjs",
     "pdf:ficha-tecnica": "node scripts/generate-documentos.mjs --only=ficha"
   },
   "dependencies": {

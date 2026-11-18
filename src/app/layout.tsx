@@ -7,6 +7,7 @@ import { CartProvider } from "@/components/cart/cart-provider";
 import CartDrawer from "@/components/cart/cart-drawer";
 import JsonLd from "@/components/json-ld";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { OG_IMAGE_ALT, OG_IMAGE_TWITTER, ogImages } from "@/lib/seo";
 import { organizationSchema, websiteSchema } from "@/lib/structured-data";
 
 const montserrat = Montserrat({
@@ -57,20 +58,15 @@ export const metadata: Metadata = {
     title: "FECA® — Creatina pura | Impulsa tu rutina",
     description:
       "Creatina monohidrato pura, trazable y certificada por lote. Energía, fuerza y recuperación para tu rutina.",
-    images: [
-      {
-        url: "/icons/og.png",
-        width: 1200,
-        height: 630,
-        alt: "FECA — Impulsa tu rutina",
-      },
-    ],
+    images: ogImages,
   },
   twitter: {
     card: "summary_large_image",
     title: "FECA® — Creatina pura",
     description: "Creatina monohidrato pura, certificada lote a lote.",
-    images: ["/icons/og-twitter.png"],
+    images: [
+      { url: OG_IMAGE_TWITTER, width: 1200, height: 675, alt: OG_IMAGE_ALT },
+    ],
   },
 };
 

@@ -5,7 +5,7 @@
 import { products, type Product } from "@/lib/products";
 import type { Certificate } from "@/lib/certificates";
 import type { Article, Faq } from "@/content/creatina/types";
-import { SITE_NAME, absoluteUrl, organization } from "@/lib/seo";
+import { OG_IMAGE, SITE_NAME, absoluteUrl, organization } from "@/lib/seo";
 
 const BRAND = { "@type": "Brand", name: SITE_NAME } as const;
 
@@ -123,7 +123,7 @@ export function articleSchema(article: Article & { path: string }) {
     dateModified: article.updated,
     mainEntityOfPage: absoluteUrl(article.path),
     url: absoluteUrl(article.path),
-    image: [absoluteUrl("/icons/og.png")],
+    image: [absoluteUrl(OG_IMAGE)],
     author: { "@type": "Organization", name: SITE_NAME },
     reviewedBy: article.reviewedBy
       ? { "@type": "Person", name: article.reviewedBy }

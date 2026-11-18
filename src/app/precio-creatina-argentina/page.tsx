@@ -12,6 +12,7 @@ import {
   breadcrumbSchema,
   faqSchema,
 } from "@/lib/structured-data";
+import { ogImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: priceGuide.metaTitle ?? priceGuide.title,
@@ -19,8 +20,10 @@ export const metadata: Metadata = {
   alternates: { canonical: priceGuidePath },
   openGraph: {
     type: "article",
+    url: priceGuidePath,
     title: priceGuide.metaTitle ?? priceGuide.title,
     description: priceGuide.description,
+    images: ogImages,
   },
 };
 
