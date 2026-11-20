@@ -1,6 +1,6 @@
 <!-- BEGIN:nextjs-agent-rules -->
 
-# This is NOT the Next.js you know
+## This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
 
@@ -35,6 +35,21 @@ Los precios son **fuente única de verdad** en [`src/lib/products.ts`](src/lib/p
 - Cualquier test nuevo que muestre precios debe usar este helper (o calcularlos desde `products.ts`). No escribir valores literales como `$28.000`, `$43.500`, `$82.000`, `43500`, etc.
 - Si hay tests legacy con precios hardcodeados, actualizarlos para que deriven de la fuente única.
 
+## Dependencias y build limpios
+
+Install, lint, build, `tsc`, el modo dev y el log de Vercel tienen que quedar **sin un solo warning**.
+`npm run check:dev` recorre todo el sitemap con `next dev` y falla ante cualquier error o warning (navegador o
+servidor); `e2e/console.spec.ts` hace lo mismo sobre el build de producción.
+
+- **`@playwright/test` fijo en 1.63.0:** usa Chromium 1243, el que trae la VM de la nube en `/opt/pw-browsers`, y la
+  red de la VM no deja bajar otro (`cdn.playwright.dev` da 403). Subirlo rompe los e2e en la nube.
+- **eslint 10 con `overrides`:** `eslint-plugin-react`, `-import` y `-jsx-a11y` (vía `eslint-config-next`) todavía
+  declaran `eslint ^9` aunque funcionan con 10 (probado regla por regla, 2026-11-20); eslint 9 ya está deprecado y
+  `npm ci` avisa. Cuando esos plugins acepten 10, sacar los `overrides` de `package.json`.
+- **TypeScript 6, no 7:** `typescript-eslint` exige `<6.1`.
+- **`vercel.json` quita `npm_config_cache_dir`** en install y build: la imagen de Vercel la define, npm no la conoce
+  (`Unknown env config "cache-dir"`) y la ignora; sacarla no cambia nada salvo el warning.
+
 ## Trabajos pesados: uno por vez y en la nube cuando la Mac está cargada (IMPORTANTE)
 
 La Mac (M2, 8 GB de RAM) la comparten el dueño y muchos agentes; renders y builds en paralelo ya la dejaron sin
@@ -43,6 +58,7 @@ scripts en `scripts/cloud/`.
 
 - **Un solo trabajo pesado por vez en TODA la Mac** (todas las sesiones y usuarios). Pesados en este repo:
   `npm run build`, `npx tsc --noEmit`, `npm run test:e2e` (hace su propio build), `npm run dev` / `npm start`,
+  `npm run check:dev`,
   `remotion render|still|bundle|studio` y los pasos de `marketing/video/make.sh` que los usan (`render`, `preview`,
   `all`), y lanzar subagentes en paralelo. Siguen siendo locales: `npm run lint`, `npm run documentos`, `npm run seo`,
   `./make.sh audio` y git.

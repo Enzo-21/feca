@@ -1,13 +1,15 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("Estabilidad global", () => {
-  test("no hay errores de consola ni excepciones al recorrer el sitio", async ({
+  test("no hay errores, warnings ni excepciones al recorrer el sitio", async ({
     page,
   }) => {
     const errors: string[] = [];
 
     page.on("console", (msg) => {
-      if (msg.type() === "error") errors.push(`console: ${msg.text()}`);
+      if (msg.type() === "error" || msg.type() === "warning") {
+        errors.push(`console.${msg.type()}: ${msg.text()}`);
+      }
     });
     page.on("pageerror", (err) => errors.push(`pageerror: ${err.message}`));
 
