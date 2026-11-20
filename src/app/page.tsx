@@ -33,12 +33,12 @@ export default function Home() {
       <div className="border-y border-border bg-white">
         <Marquee items={marqueeItems} />
       </div>
+      <ProductsPreview />
       <Applications />
       <Features />
       <div className="mt-4">
         <QualityTeaser />
       </div>
-      <ProductsPreview />
       <div className="mt-4">
         <TechnicalSheetCard />
       </div>
